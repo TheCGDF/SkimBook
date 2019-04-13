@@ -7,7 +7,7 @@
     "element":"traffic",
     "users":[
         {
-            "email":"aaa@bb.com",  // 如果节点有多个tag，则一起上报所有tag的同个用户流量状况
+            "email":"aaa@bb.com",  
             "download":"333",
             "upload":"222"
         }
