@@ -11,7 +11,7 @@ v2ray配置更新：{
     "inboundConfig": {
         "port": 443,
         "grpcApiPort": 2333,
-        "tag":"xxx",     //需要唯一性 方便节点维护多个协议。如果缺失则使用默认tag
+        "tag":"xxx",     //需要唯一性 如果缺失则使用默认tag
         "protocol": "vmess",    //"shadowsocks" (这里的ss拿来做ss+ws的提示，user信息还是按照ss信息给我就好)
         "streamSettings": {
             "network": "tcp", // "ws","kcp"
