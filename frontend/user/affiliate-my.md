@@ -1,2 +1,0 @@
-# affiliate-my
-

@@ -1,2 +1,0 @@
-# finance-all
-
