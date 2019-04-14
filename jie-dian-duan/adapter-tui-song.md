@@ -1,6 +1,16 @@
 # adapter推送
 
-adapter推送的内容由web端插件控制
+间隔/key更新：
+
+```text
+{
+    "element":"speed_interval/traffic_interval/key",
+    "value":"7200"
+}
+//这里的interval，应当用sleep实现而不是使用Timer
+```
+
+其余推送的内容由web端插件控制
 
 如果web端安装了v2ray插件，则会收到v2ray的json：
 
