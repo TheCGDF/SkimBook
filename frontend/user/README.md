@@ -38,6 +38,7 @@ GET order-sort:
 
 ```text
 返回：{
+    "result":"success",
     "sorts":[
         "time","menu"
     ]
@@ -113,6 +114,7 @@ GET finance-sort
 
 ```text
 返回：{
+    "result":"success",
     "sorts":[
         "affiliate","origin","currency","time"
     ]

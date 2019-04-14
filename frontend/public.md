@@ -1,24 +1,26 @@
 # public
 
-GET text:
+GET language:
 
 ```text
-?请求参数：
-text:base64("hello , ?")    //经过http base64编码过的字符串
-param:base64("Mike")    //经过http base64编码过的字符串，text中有多少个问号，就有多少个param
+返回：{
+    "result":"success",
+    "language":"en-US"
+}
 ```
 
 GET type-sort:
 
 ```text
 返回：{
+    "result":"success",
     "sorts":[
         "type"
     ]
 }
 ```
 
-GET type:
+GET type-all:
 
 ```text
 ?请求参数：
@@ -38,6 +40,7 @@ GET node-sort:
 
 ```text
 返回：{
+    "result":"success",
     "sorts":[
         "name"
     ]
@@ -81,6 +84,7 @@ GET notice-sort:
 
 ```text
 返回：{
+    "result":"success",
     "sorts":[
         "time/title"
     ]
