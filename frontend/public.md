@@ -1,5 +1,13 @@
 # public
 
+GET translate:
+
+```text
+?请求参数：
+text:base64("hello , ?")    //经过http base64编码过的字符串
+param:base64("Mike")    //经过http base64编码过的字符串，text中有多少个问号，就有多少个param
+```
+
 GET type-sort:
 
 ```text
