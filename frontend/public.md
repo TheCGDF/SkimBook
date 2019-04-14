@@ -1,8 +1,23 @@
 # public
 
+GET type-sort:
+
+```text
+返回：{
+    "sorts":[
+        "type"
+    ]
+}
+```
+
 GET type:
 
 ```text
+?请求参数：
+page:1
+number=10
+sort=type（可不写，支持多个）
+
 返回：{
     "result":"success",
     "types":[
@@ -11,9 +26,25 @@ GET type:
 }
 ```
 
-GET node?type={节点类型，shadowsocks/v2ray}:
+GET node-sort:
 
 ```text
+返回：{
+    "sorts":[
+        "name"
+    ]
+}
+```
+
+GET node-public:
+
+```text
+?请求参数：
+type:shadowsocks/v2ray
+page:1
+number=10
+sort=name（可不写，支持多个）
+
 返回：{
     "result":"success",
     "nodes":[
@@ -34,13 +65,28 @@ GET currency:
 ```text
 返回：{
     "result":"success",
-    "currency":"CNY"
+    "currency":"CNY"    //待定
+}
+```
+
+GET notice-sort:
+
+```text
+返回：{
+    "sorts":[
+        "time/title"
+    ]
 }
 ```
 
 GET notice-public:
 
 ```text
+?请求参数：
+page:1
+number=10
+sort=time/title（可不写，支持多个）
+
 返回：{
     "result":"success",
     "notices":[

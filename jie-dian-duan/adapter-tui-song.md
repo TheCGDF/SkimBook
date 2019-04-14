@@ -66,7 +66,7 @@ v2ray用户删除：{
     "element":"v2ray",
     "operation":"userRemove",
     "users":[
-        {"email":"uuu@vv.com"}      //删除时只有email字段
+        "uuu@vv.com"      //删除时只有email字段
     ]
 }
 ```

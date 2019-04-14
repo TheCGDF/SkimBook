@@ -10,11 +10,19 @@ POST node-edit:
 }
 ```
 
+GET notice-sort:
+
+```text
+返回：{
+    ...    //格式同public/notice=order
+}
+```
+
 GET notice-my:
 
 ```text
 返回：{
-    ...    //同public/notice-public
+    ...    //格式同public/notice-public
 }
 ```
 
@@ -22,13 +30,28 @@ GET notice?id={notice id}:
 
 ```text
 返回：{
-    ...    //同public/notice
+    ...    //格式同public/notice
+}
+```
+
+GET order-sort:
+
+```text
+返回：{
+    "sorts":[
+        "time","menu"
+    ]
 }
 ```
 
 GET order-my:
 
 ```text
+?请求参数：
+page:1
+number=10
+sort=time/menu（可不写，支持多个）
+
 返回：{
     "result":"success",
     "orders":[
@@ -45,9 +68,24 @@ POST order-new:
 }
 ```
 
+GET finance-sort
+
+```text
+返回：{
+    "sorts":[
+        "type","price","currency","time","coupon"
+    ]
+}
+```
+
 GET finance-my:
 
 ```text
+?请求参数：
+page:1
+number=10
+sort=type/price/currency/time/coupon（可不写，支持多个）
+
 返回：{
     "result":"success",
     "finances":[
@@ -64,16 +102,31 @@ GET finance?id={资金流id}
 返回：{
     "result":"success",
     "type":"order",    //资金类型
-    "price":"8",    //原价（非实际消费）
+    "origin":"8",    //原始金额（非实际金额）
     "currency":"CNY",    //货币
     "time":"2019-10-10 14：44：34",    //消费时间
     "coupon":"7"    //优惠券id
 }
 ```
 
+GET finance-sort
+
+```text
+返回：{
+    "sorts":[
+        "affiliate","origin","currency","time"
+    ]
+}
+```
+
 GET affiliate-my:
 
 ```text
+?请求参数：
+page:1
+number=10
+sort=affiliate/origin/currency/time（可不写，支持多个）
+
 返回：{
     "result":"success",
     "affiliates":[
