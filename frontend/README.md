@@ -5,7 +5,7 @@
 ```text
 {
     "result":"success"/"error",
-    "message":"经过翻译插件翻译过的message"
+    "message":"500"    //待定
 }
 ```
 

@@ -1,5 +1,14 @@
 # user
 
+GET language:
+
+```text
+返回：{
+    "result":"success",
+    "language":"zh-CN"
+}
+```
+
 POST node-edit:
 
 ```text
