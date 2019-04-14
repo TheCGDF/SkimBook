@@ -1,6 +1,6 @@
 # public
 
-GET translate:
+GET text:
 
 ```text
 ?请求参数：
