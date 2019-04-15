@@ -9,6 +9,14 @@ GET language:
 }
 ```
 
+POST language:
+
+```text
+发送：{
+    "language":"zh-CN"
+}
+```
+
 POST node-edit:
 
 ```text
