@@ -9,7 +9,7 @@ GET language:
 }
 ```
 
-POST language:
+POST language-edit:
 
 ```text
 发送：{

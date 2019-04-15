@@ -146,7 +146,7 @@ finance\_timeout:
 
 ```text
 description:数据库保留finance记录的时间，单位：秒
-type:second
+type:integer
 value:0 (永不过期)
 restriction:>= 0
 importance:middle
@@ -156,7 +156,8 @@ language:
 
 ```text
 description:网站默认语言（用户可自行更改）
-type:language
+type:array
+restriction:zh-CN,.....
 value:zh-CN
 importance:low
 ```
@@ -165,8 +166,19 @@ currency:
 
 ```text
 description:网站最终结算货币
-type:currency
+type:array
+restriction:CNY,...
 value:CNY
+importance:low
+```
+
+timezone:
+
+```text
+description:网站时区
+type:array
+restriction:Asia/Shanghai
+value:Asia/Shanghai
 importance:low
 ```
 

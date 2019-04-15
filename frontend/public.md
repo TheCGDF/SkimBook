@@ -9,6 +9,18 @@ GET language:
 }
 ```
 
+GET timezone:
+
+```text
+返回：{
+    "result":"sucess",
+    "timezone":"Asia/Shanghai"
+}
+// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+//数据库总是以UTC存储
+//API总是返回UTC时间
+```
+
 GET type-sort:
 
 ```text
