@@ -1,10 +1,21 @@
 # 配置
 
+version:
+
+```text
+description:后端版本
+type:string
+importance:low
+value:"j5gkl8"
+permission:readonly
+```
+
 website\_domain:
 
 ```text
 description:网站url，不包含“http://”等scheme（skim支持且仅支持https和wss）
-type:domain
+type:string
+restriction:domain
 importance:high
 ```
 
@@ -16,11 +27,41 @@ type:string
 importance:high
 ```
 
+redis\_address:
+
+```text
+description:redis(adapter)地址
+type:string
+restriction:address
+value:l27.0.0.1
+importance:low
+```
+
+redis\_password:
+
+```text
+description:
+type:string
+restriction:password
+value:5ju67tjhhu
+importance:low
+```
+
+redis\_database:
+
+```text
+description:
+type:string
+value:skim
+importance:low
+```
+
 register\_mode:
 
 ```text
 description:注册模式
-type:array('open','close','invite')
+type:array
+restriction:open,close,invite
 value:open
 importance:low
 ```
