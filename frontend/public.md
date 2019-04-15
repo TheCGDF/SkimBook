@@ -52,6 +52,7 @@ GET node-public:
 ```text
 ?请求参数：
 type:shadowsocks/v2ray
+language:zh-CN（name语言）
 page:1
 number=10
 sort=name（可不写，支持多个）
@@ -76,7 +77,7 @@ GET currency:
 ```text
 返回：{
     "result":"success",
-    "currency":"CNY"    //待定
+    "currency":"CNY"    //最终结算货币
 }
 ```
 
@@ -86,7 +87,7 @@ GET notice-sort:
 返回：{
     "result":"success",
     "sorts":[
-        "time/title"
+        "time","title"
     ]
 }
 ```
@@ -97,6 +98,7 @@ GET notice-public:
 ?请求参数：
 page:1
 number=10
+language:en-US（语言）
 sort=time/title（可不写，支持多个）
 
 返回：{
@@ -107,9 +109,12 @@ sort=time/title（可不写，支持多个）
 }
 ```
 
-GET notice?id={notice id}:
+GET notice:
 
 ```text
+请求参数：
+id=4
+
 返回：{
     "result":"success",
     "title":"hello",

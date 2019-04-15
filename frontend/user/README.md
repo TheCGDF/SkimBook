@@ -30,24 +30,30 @@ POST node-edit:
 GET notice-sort:
 
 ```text
+//格式同public/notice=order，但不需要language
+
 返回：{
-    ...    //格式同public/notice=order
+    ...    
 }
 ```
 
 GET notice-my:
 
 ```text
+//格式同public/notice-public，但不需要language
+
 返回：{
-    ...    //格式同public/notice-public
+    ...
 }
 ```
 
-GET notice?id={notice id}:
+GET notice:
 
 ```text
+//格式同public/notice
+
 返回：{
-    ...    //格式同public/notice
+    ...    
 }
 ```
 
@@ -120,7 +126,7 @@ GET finance?id={资金流id}
 返回：{
     "result":"success",
     "type":"order",    //资金类型
-    "origin":"8",    //原始金额（非实际金额）
+    "price":"8",    //原始金额（非实际金额）
     "currency":"CNY",    //货币
     "time":"2019-10-10 14：44：34",    //消费时间
     "coupon":"7"    //优惠券id
