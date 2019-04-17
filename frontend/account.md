@@ -24,7 +24,7 @@ POST register:
     "email":"222@22.com",
     "password":"aaa",
     "verification":"vvv",    //邮箱验证码
-    "affiliate":"aaa",    //邀请码
+    "invite":"aaa",    //邀请码
 }
 ```
 
