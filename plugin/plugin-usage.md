@@ -2,7 +2,11 @@
 
 ### 插件鉴权
 
-后端打开一个监听本地的端口以接收ws连接，并通过 -load -port=xxx 参数启动所有插件（此时所有插件被标记为"launching"） 插件在load后可以自行设置环境并连接上后端（插件会被标记为"loading"，如果超时3秒未连接，插件会被标记为"failed"） 后端在检测到连接后，会将自己内置的RSA公钥（即，和后端通信的那个RSA公钥）使用md5编码后发送给后端鉴权：
+后端启动插件后，插件被标记为"launching"
+
+插件连接上后端后，插件会被标记为"loading"，如果超时3秒未连接，插件会被标记为"failed"
+
+ 后端在检测到连接后，会将自己内置的RSA公钥（即，和节点通信的那个RSA公钥）使用md5编码后发送给后端鉴权：
 
 ```text
 { "element":"verify", "value":"xxxxx" }
@@ -13,8 +17,7 @@
 ```text
 {
     "element":"verify",
-    "version":1,    //int，从1开始。如果校验失败就返回0
-    "type":"node"   //插件的类型，决定了后端的调用方式
+    "version":1    //int，从1开始。如果校验失败就返回0
 }
 ```
 
@@ -60,6 +63,26 @@
 //插件自己Sync字段
 ```
 
+插件发送自己的初始配置：
+
+```text
+{
+    "element":"config",
+    "configs":[
+        {
+            "name":"plugin_mailgun_domain",
+            //插件的name必须是"plugin"+插件名+配置名
+            //插件的
+            "importance":"low",
+            "value":"8",
+            "type":"int",
+            "limit":
+        }
+    ]
+}
+//发送时，如果后端发现数据库中没有这些配置，会为数据库新增这些配置
+```
+
 #### 插件准备完成后，向后端发送：
 
 ```text
@@ -70,47 +93,17 @@
 //超时10秒未准备好会被标记为stuck ？
 ```
 
-### 后端获取插件配置
-
-后端发送给插件：
+后端每次发送命令时都会附上config:
 
 ```text
 {
-    "element":"config",
-    "operation":"get"
-}
-```
-
-插件返回
-
-```text
-{
-    "element":"config",
-    "configs":[
-        {
-            "name":"mode",
-            "importance":"low",
-            "value":"8",
-            "type":"int",
-            "limit":
-        }
-    ]
-}
-```
-
-### 后端更新插件配置
-
-后端发送:
-
-```text
-{
-    "element":"config",
-    "operation":"update",
+    "element":"send",    //email插件的send
     "configs":[
         //同上方
     ]
+    "sender":"sss@qq.com",
+    ...
 }
-//插件的config保存在哪里，后端并不关心
 //插件的config会和后端的config拥有完全相同的属性，其他文件再讲
 ```
 
@@ -135,5 +128,6 @@
 //如果是来自后端的json导致的，建议把那条json付在"message"里
 //type为warning的时候插件依然会继续运行
 //type为error时表示“啊，我死了”，后端会立即关闭连接
+//message是经过base64编码的
 ```
 
