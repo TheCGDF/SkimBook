@@ -85,6 +85,29 @@
 //发送时，如果后端发现数据库中没有这些配置，会为数据库新增这些配置
 ```
 
+#### 宿主请求配置描述：
+
+```text
+{
+    "element":"description",
+    "language":"zh-CN"
+}
+```
+
+#### 插件返回描述：
+
+```text
+{
+    "element":"description",
+    "descriptions":[
+        {
+            "name":"plugin_mailgun_domain",
+            "description":"mail域名"
+        }
+    ]
+}
+```
+
 #### 插件准备完成后，向宿主发送：
 
 ```text
@@ -113,7 +136,7 @@
 
 ```text
 {
-    "element":"exit"    //每个插件最多等待10秒
+    "element":"exit"    //每个插件最多等待30秒
 }
 ```
 
