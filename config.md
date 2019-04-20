@@ -1,15 +1,5 @@
 # 配置
 
-version:
-
-```text
-description:后端版本
-type:string
-importance:low
-value:"j5gkl8"
-permission:readonly
-```
-
 website\_domain:
 
 ```text

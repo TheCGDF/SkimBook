@@ -25,6 +25,7 @@ POST register:
     "password":"aaa",
     "verification":"vvv",    //邮箱验证码
     "invite":"aaa",    //邀请码
+    "language":"zh-CN"    //根据当前页面的语言
 }
 ```
 
