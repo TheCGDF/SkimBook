@@ -106,7 +106,7 @@ GET finance-my:
 
 ```text
 ?请求参数：
-page:1
+page=1
 number=10
 sort=type/price/currency/time/coupon（可不写，支持多个）
 
@@ -120,16 +120,23 @@ sort=type/price/currency/time/coupon（可不写，支持多个）
 }
 ```
 
-GET finance?id={资金流id}
+GET finance
 
 ```text
+？请求参数：
+id=4（可多个）
+
 返回：{
     "result":"success",
-    "type":"order",    //资金类型
-    "price":"8",    //原始金额（非实际金额）
-    "currency":"CNY",    //货币
-    "time":"2019-10-10 14：44：34",    //消费时间
-    "coupon":"7"    //优惠券id
+    "finances":[
+        {
+            "type":"order",    //资金类型
+            "price":"8",    //原始金额（非实际金额）
+            "currency":"CNY",    //货币
+            "time":"2019-10-10 14：44：34",    //消费时间
+            "coupon":"7"    //优惠券id
+        }
+    ]
 }
 ```
 

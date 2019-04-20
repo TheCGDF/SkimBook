@@ -18,7 +18,7 @@ GET timezone:
 }
 // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 //数据库总是以UTC存储
-//API总是返回UTC时间
+//API总是返回timezone时间
 ```
 
 GET type-sort:
@@ -125,12 +125,16 @@ GET notice:
 
 ```text
 请求参数：
-id=4
+id=4（可多个）
 
 返回：{
     "result":"success",
-    "title":"hello",
-    "content":"this is ..."
+    "notices":[
+        {
+            "title":"hello",
+            "content":"this is ..."
+        }
+    ]
 }
 ```
 
