@@ -7,6 +7,8 @@ GET language:
     "result":"success",
     "language":"en-US"
 }
+
+//https://tools.ietf.org/html/bcp47
 ```
 
 GET timezone:
@@ -36,6 +38,7 @@ GET type-all:
 
 ```text
 ?请求参数：
+language:zh-CN
 page:1
 number=10
 sort=type（可不写，支持多个）
