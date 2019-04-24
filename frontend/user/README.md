@@ -1,11 +1,10 @@
 # user
 
-GET language:
+GET my:
 
 ```text
 返回：{
-    "result":"success",
-    "language":"zh-CN"
+    ..//待定
 }
 ```
 

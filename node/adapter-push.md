@@ -1,13 +1,14 @@
 # adapter推送
 
-间隔/key更新：
+间隔更新：
 
 ```text
 {
-    "element":"speed_interval/traffic_interval/key",
+    "element":"speed"/"traffic",
+    "operation":"interval",
     "value":"7200"
 }
-//这里的interval，应当用sleep实现而不是使用Timer
+//这里的间隔，应当用sleep实现而不是使用Timer
 ```
 
 其余推送的内容由web端插件控制
@@ -46,7 +47,7 @@ v2ray配置更新：{
 
 v2ray用户新增：{
     "element":"v2ray",
-    "operation":"userAdd",
+    "operation":"add",
     "users":[
         {
             "email":"ccc@dd.com",
@@ -59,7 +60,7 @@ v2ray用户新增：{
 
 v2ray用户更新：{
     "element":"v2ray",
-    "operation":"userUpdate",
+    "operation":"update",
     "usersOld":[
         {
             "email":"uuu@vv.com"    //email作为v2ray的用户标识，仅需提供email
@@ -74,7 +75,7 @@ v2ray用户更新：{
 
 v2ray用户删除：{
     "element":"v2ray",
-    "operation":"userRemove",
+    "operation":"remove",
     "users":[
         "uuu@vv.com"      //删除时只有email字段
     ]
@@ -86,7 +87,7 @@ v2ray用户删除：{
 ```text
 ss用户新增：{
     "element":"shadowsocks",
-    "operation":"userAdd",
+    "operation":"add",
     "users":[
         {
             "email":"sss@dd.com",
@@ -100,7 +101,7 @@ ss用户新增：{
 
 ss用户更新：{
     "element":"shadowsocks",
-    "operation":"userUpdate",
+    "operation":"update",
     "usersOld":[
         {
             "email":"uuu@vv.com",  //email作为ss的用户标识，仅需提供email
@@ -115,7 +116,7 @@ ss用户更新：{
 
 ss用户删除：{
     "element":"shadowosocks",
-    "operation":"userRemove",
+    "operation":"remove",
     "users":[
         {"email":"uuu@vv.com"}      //删除时只有email字段
     ]
