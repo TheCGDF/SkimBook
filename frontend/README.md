@@ -14,6 +14,7 @@
 后端提供了大量的列表查询API，HTTP方法均为GET且格式统一：
 
 ```text
+GET /xxx-type
 查询列表支持的type，用户可以通过type筛选显示列表内容
 type使用场景：
 node拥有shadowsocks和v2ray等type
@@ -31,6 +32,7 @@ language:zh-CN（/public下需要此参数，/user下不需要）
     ]
 }
 
+GET /xxx-sort
 查询列表支持的sort（排序方式）
 请求参数：
 language:zh-CN（/public下需要此参数，/user下不需要）
@@ -44,6 +46,7 @@ language:zh-CN（/public下需要此参数，/user下不需要）
     ]
 }
 
+GET /xxx-public 或/xxx-my 或/xxx-all
 对列表进行分页查询
 请求参数：
 type:shadowsocks/v2ray（可不写，可写多个，不写时视为查询所有type）
@@ -61,6 +64,7 @@ full=true返回：{
     "list":...    //根据不同的列表结构而返回不同的list内容
 }
 
+GET /xxx
 对列表进行精确查询
 请求参数：
 id=123（可以同时查询多个id）
