@@ -1,18 +1,19 @@
 # account
 
-POST send-code:
+POST send-verification:
 
 ```text
-发送：{
+发送注册或重置密码的验证码（注册时强制要求验证码）：{
     "email":"000@00.com",
-    "language":"zh-CN"
+    "language":"zh-CN",
+    "type":1    //1注册验证码 2重置密码
 }
 ```
 
 POST login:
 
 ```text
-发送：{
+登录：{
     "email":"111@11.com",
     "language":"zh-CN",
     "password":"ppp"
@@ -22,7 +23,7 @@ POST login:
 POST register:
 
 ```text
-发送：{
+注册：{
     "email":"222@22.com",
     "password":"aaa",
     "verification":"vvv",    //邮箱验证码
@@ -31,25 +32,14 @@ POST register:
 }
 ```
 
-POST password-edit:
+POST password-new:
 
 ```text
-发送：{
+修改密码：{
     "email":"333@33.com",
     "language":"zh-CN",
     "passwordNew":"sss",
     "verification":"vvv"    //邮箱验证码
-}
-```
-
-POST email-edit:
-
-```text
-发送：{
-    "email":"444@44.com",
-    "language":"zh-CN",
-    "emailNew":"555@55.com",
-    "verification":"eee"
 }
 ```
 

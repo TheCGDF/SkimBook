@@ -11,7 +11,7 @@ GET my:
 POST language-edit:
 
 ```text
-发送：{
+编辑用户语言：{
     "language":"zh-CN"
 }
 ```
@@ -19,66 +19,41 @@ POST language-edit:
 POST node-edit:
 
 ```text
-发送：{
+编辑节点配置：{
     "type":"shadowsocks",    //类型
-    "id":8,    //node id
+    "node":8,    //node id
     ...    //详细配置
 }
 ```
 
-GET notice-sort:
+notice列表查询:
 
 ```text
-//格式同public/notice=order，但不需要language
+notice-type
+notice-sort
+notice-my
+notice
 
-返回：{
-    ...    
-}
+格式同public下的notice列表查询，但不需要language参数
 ```
 
-GET notice-my:
+order列表查询:
 
 ```text
-//格式同public/notice-public，但不需要language
+order-type
+order-sort
+order-my
+order
 
-返回：{
-    ...
-}
-```
-
-GET notice:
-
-```text
-//格式同public/notice
-
-返回：{
-    ...    
-}
-```
-
-GET order-sort:
-
-```text
-返回：{
+order-my（full=true）和order返回结构：{
     "result":"success",
-    "sorts":[
-        "time","menu"
-    ]
-}
-```
-
-GET order-my:
-
-```text
-?请求参数：
-page:1
-number=10
-sort=time/menu（可不写，支持多个）
-
-返回：{
-    "result":"success",
-    "orders":[
-        {"menu":99}    //当前正在生效的菜单id
+    "list":[
+        {
+            "id":555,
+            "time":"xxxx-xx-xx xx:xx:xx"
+            "menu":222,订单的菜单id，
+            "renew":"true"是否自动续订
+        }
     ]
 }
 ```
@@ -86,49 +61,24 @@ sort=time/menu（可不写，支持多个）
 POST order-new:
 
 ```text
-发送：{
+下订单：{
     "menu":8,    //菜单id
 }
 ```
 
-GET finance-sort
+finance列表查询：
 
 ```text
-返回：{
-    "sorts":[
-        "type","price","currency","time","coupon"
-    ]
-}
-```
+finance-type
+finance-sort
+finance-my
+finance
 
-GET finance-my:
-
-```text
-?请求参数：
-page=1
-number=10
-sort=type/price/currency/time/coupon（可不写，支持多个）
-
-返回：{
+finance-my（full=true）和finance返回结构：{
     "result":"success",
-    "finances":[
+    "list":[
         {
-            "id":"3"
-        }
-    ]
-}
-```
-
-GET finance
-
-```text
-？请求参数：
-id=4（可多个）
-
-返回：{
-    "result":"success",
-    "finances":[
-        {
+            "id":"777",
             "type":"order",    //资金类型
             "price":"8",    //原始金额（非实际金额）
             "currency":"CNY",    //货币
@@ -139,48 +89,42 @@ id=4（可多个）
 }
 ```
 
-GET finance-sort
+invite列表查询：
 
 ```text
-返回：{
+invite-type
+invite-sort
+invite-my
+invite
+
+invite-my（full=true）和invite返回结构：{
     "result":"success",
-    "sorts":[
-        "affiliate","origin","currency","time"
-    ]
-}
-```
-
-GET affiliate-my:
-
-```text
-?请求参数：
-page:1
-number=10
-sort=affiliate/origin/currency/time（可不写，支持多个）
-
-返回：{
-    "result":"success",
-    "affiliates":[
+    "list":[
         {
-            "affiliate":"7",//被邀请者id
+            "id":"7",
             "finance":"6",//资金流id
         }
     ]
 }
 ```
 
-GET traffic-my:
+traffic列表查询:
 
 ```text
-返回：{
+traffic-type
+traffic-sort
+traffic-my
+traffic
+
+traffic-my（full=true）和traffic返回结构：{
     ...    //待定
 }
 ```
 
-POST invitation-buy:
+POST invite-buy:
 
 ```text
-发送：{
+购买邀请次数：{
     "number":2    //数量
 }
 ```

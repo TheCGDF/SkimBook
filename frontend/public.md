@@ -3,9 +3,12 @@
 GET language:
 
 ```text
-返回：{
+获取默认语言和所有语言，返回：{
     "result":"success",
-    "language":"en-US"
+    "default":"en-US",
+    "languages":[
+        "en-US","zh-CN"
+    ]
 }
 
 //https://tools.ietf.org/html/bcp47
@@ -14,68 +17,36 @@ GET language:
 GET timezone:
 
 ```text
-返回：{
+获取默认时区，返回：{
     "result":"sucess",
-    "timezone":"Asia/Shanghai"
+    "default":"Asia/Shanghai"
 }
 // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 //数据库总是以UTC存储
 //API总是返回timezone时间
 ```
 
-GET type-sort:
+GET currency:
 
 ```text
-返回：{
+获取默认结算货币，返回：{
     "result":"success",
-    "sorts":[
-        "type"
-    ]
+    "default":"CNY"    //最终结算货币
 }
 ```
 
-GET type-all:
+node列表查询：
 
 ```text
-?请求参数：
-language:zh-CN
-page:1
-number=10
-sort=type（可不写，支持多个）
+node-type
+node-sort
+node-public
+node
 
-返回：{
+node-public（full=true）和node返回结构：{
     "result":"success",
-    "types":[
-        {"type":"shadowsocks"}
-    ]
-}
-```
-
-GET node-sort:
-
-```text
-返回：{
-    "result":"success",
-    "sorts":[
-        "name"
-    ]
-}
-```
-
-GET node-public:
-
-```text
-?请求参数：
-type:shadowsocks/v2ray
-language:zh-CN（name语言）
-page:1
-number=10
-sort=name（可不写，支持多个）
-
-返回：{
-    "result":"success",
-    "nodes":[
-        "id":8,
+    "list":[
+        "node":8,
         "name":"美国1000000Gbps CN4线路",
         "menu":[
             "id":"3",    //菜单id
@@ -83,56 +54,20 @@ sort=name（可不写，支持多个）
             "ratio":"0.5",    //每G价格（未指定货币单位）
             "speed":"10"    //速度
         ]
-    ]
 }
 ```
 
-GET currency:
+notice列表查询:
 
 ```text
-返回：{
+notice-type
+notice-sort
+notice-public
+notice
+
+notice-public（full=true）和notice返回结构：{
     "result":"success",
-    "currency":"CNY"    //最终结算货币
-}
-```
-
-GET notice-sort:
-
-```text
-返回：{
-    "result":"success",
-    "sorts":[
-        "time","title"
-    ]
-}
-```
-
-GET notice-public:
-
-```text
-?请求参数：
-page:1
-number=10
-language:en-US（语言）
-sort=time/title（可不写，支持多个）
-
-返回：{
-    "result":"success",
-    "notices":[
-        {"id":4}
-    ]
-}
-```
-
-GET notice:
-
-```text
-请求参数：
-id=4（可多个）
-
-返回：{
-    "result":"success",
-    "notices":[
+    "list":[
         {
             "title":"hello",
             "content":"this is ..."
