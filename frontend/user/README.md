@@ -29,7 +29,7 @@ POST node-edit:
 notice列表查询:
 
 ```text
-notice-type
+notice-filter
 notice-sort
 notice-my
 notice
@@ -40,7 +40,7 @@ notice
 order列表查询:
 
 ```text
-order-type
+order-filter
 order-sort
 order-my
 order
@@ -69,7 +69,7 @@ POST order-new:
 finance列表查询：
 
 ```text
-finance-type
+finance-filter
 finance-sort
 finance-my
 finance
@@ -92,7 +92,7 @@ finance-my（full=true）和finance返回结构：{
 invite列表查询：
 
 ```text
-invite-type
+invite-filter
 invite-sort
 invite-my
 invite
@@ -111,7 +111,7 @@ invite-my（full=true）和invite返回结构：{
 traffic列表查询:
 
 ```text
-traffic-type
+traffic-filter
 traffic-sort
 traffic-my
 traffic

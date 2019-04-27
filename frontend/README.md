@@ -14,20 +14,46 @@
 后端提供了大量的列表查询API，HTTP方法均为GET且格式统一：
 
 ```text
-GET /xxx-type
-查询列表支持的type，用户可以通过type筛选显示列表内容
-type使用场景：
-node拥有shadowsocks和v2ray等type
-finance拥有支出、收入等type
-email发送记录拥有注册验证码、密码重置验证码、公告等type
+GET /xxx-filter
+查询列表支持的筛选，用户可以通过filter筛选显示列表内容
+filter使用场景：
+node（节点）拥有：
+    type（类型）筛选：[shadowsocks、v2ray]
+coupon（优惠券）拥有：
+    scenario（使用场景）筛选：[充值、购买邀请码]等
+    type（优惠方式）筛选：[加倍、折扣、抵扣]
 请求参数：
-language:zh-CN（/public下需要此参数，/user下不需要）
+language=zh-CN（/public下需要此参数，/user下不需要）
 返回：{
     "result":"success",
-    "types":[    //如果列表没有任何type以供筛选时，也会返回一个空type数组
+    "categories":[    //如果列表没有任何filter以供筛选时，也会返回一个空categories数组
         {
-            "type":"shadowsocks",    //用于和后端交互
-            "text":"shadowsocks"    //用于显示至前端，根据language的不同而显示不同的文字
+            "category":"scenario",    //筛选类别
+            "text":"使用场景",    //文字描述，根据language的不同而显示不同的文字
+            "filters":[
+                {
+                    "filter":"topup",
+                    "text":"充值"
+                },
+                {
+                    "filter":"buyInvite",
+                    "text":"购买邀请码"
+                }
+            ]
+        },
+        {
+            "category":"type",
+            "text":"优惠方式",
+            "filters":[
+                {
+                    "filter":"discount",
+                    "text":"折扣"
+                },
+                {
+                    "filter":" deduction"，
+                    "text":"抵扣"
+                }
+            ]
         }
     ]
 }
@@ -49,11 +75,17 @@ language:zh-CN（/public下需要此参数，/user下不需要）
 GET /xxx-public 或/xxx-my 或/xxx-all
 对列表进行分页查询
 请求参数：
-type:shadowsocks/v2ray（可不写，可写多个，不写时视为查询所有type）
-language:zh-CN（/public下需要此参数，/user下不需要）
-sort=name（可不写，可写多个，不写时视为使用默认排序）
-number=10（每页多少个）
-page:1（第几页）
+筛选：（可不写，视为查找所有type）
+filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
+语言：（/public下需要此参数，/user下不需要）
+language=zh-CN
+排序：（可不写，可写多个，不写时视为使用默认排序）
+sort=name
+每页容量：
+number=10
+页码：
+page=1
+是否查询完整内容：
 full=true（false时仅返回id数组，true时返回完整内容）
 full=false返回：{
     "result":"success",
