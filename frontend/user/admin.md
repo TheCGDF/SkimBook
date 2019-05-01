@@ -1,36 +1,25 @@
+---
+description: 管理员在/admin下的操作会被记录到数据库中
+---
+
 # admin
 
-GET role
+## 列表查询
 
-GET role-all
+role（角色）、coupon（优惠券）、action（操作记录）、user（用户列表）、node（节点列表）、order（订单列表）、finance（财务记录）、invite（邀请记录）、traffic（流量记录）
 
-POST role-edit
+```text
+例：查询role（角色）列表：
+role-filter
+role-column
+role-all
+role
+role-edit
+```
 
-GET coupon-all
-
-POST coupon-edit
-
-GET action-all
-
-POST action-record
-
-GET user-all
-
-POST user-edit
-
-GET node-all
-
-POST node-edit\(menu?\)
-
-GET order-all
+## 其他
 
 GET config
 
 POST config-edit
-
-GET finance-all
-
-GET affiliate-all
-
-GET traffic-all
 

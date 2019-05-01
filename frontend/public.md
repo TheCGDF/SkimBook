@@ -39,7 +39,7 @@ node列表查询：
 
 ```text
 node-filter
-node-sort
+node-column
 node-public
 node
 
@@ -61,7 +61,7 @@ notice列表查询:
 
 ```text
 notice-filter
-notice-sort
+notice-column
 notice-public
 notice
 

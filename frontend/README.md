@@ -11,99 +11,183 @@
 
 
 
+## 列表查询
+
 后端提供了大量的列表查询API，HTTP方法均为GET且格式统一：
 
+### GET /xxx-filter
+
+查询【列表支持的filter（筛选）】，用户可以通过filter筛选显示列表内容
+
+使用场景：
+
 ```text
-GET /xxx-filter
-查询列表支持的筛选，用户可以通过filter筛选显示列表内容
-filter使用场景：
 node（节点）拥有：
     type（类型）筛选：[shadowsocks、v2ray]
+    
 coupon（优惠券）拥有：
     scenario（使用场景）筛选：[充值、购买邀请码]等
     type（优惠方式）筛选：[加倍、折扣、抵扣]
+```
+
 请求参数：
+
+```text
 language=zh-CN（/public下需要此参数，/user下不需要）
-返回：{
+```
+
+返回：
+
+```text
+{
     "result":"success",
-    "categories":[    //如果列表没有任何filter以供筛选时，也会返回一个空categories数组
+    "category":[    //如果列表没有任何filter以供筛选时，也会返回一个空category数组
         {
-            "category":"scenario",    //筛选类别
-            "text":"使用场景",    //文字描述，根据language的不同而显示不同的文字
-            "filters":[
+            "name":"scenario",    //类别名：使用场景
+            "text":"使用场景",    //文字说明，根据language的不同而显示不同的文字
+            "filter":[
                 {
-                    "filter":"topup",
+                    "name":"topup",
                     "text":"充值"
                 },
                 {
-                    "filter":"buyInvite",
+                    "name":"buyInvite",
                     "text":"购买邀请码"
                 }
             ]
         },
         {
-            "category":"type",
+            "name":"type",    //类别名：优惠方式
             "text":"优惠方式",
-            "filters":[
+            "filter":[
                 {
-                    "filter":"discount",
+                    "name":"discount",
                     "text":"折扣"
                 },
                 {
-                    "filter":" deduction"，
+                    "name":" deduction"，
                     "text":"抵扣"
                 }
             ]
         }
     ]
 }
+```
 
-GET /xxx-sort
-查询列表支持的sort（排序方式）
+### GET /xxx-column
+
+查询【列表的所有column（列名）】
+
 请求参数：
+
+```text
 language:zh-CN（/public下需要此参数，/user下不需要）
-返回：{
+```
+
+返回：
+
+```text
+{
     "result":"success",
-    "sorts":[    //如果列表没有任何sort以供排序时，也会返回一个空sorts数组
+    "column":[
         {
-            "sort":"name",    //用于和后端交互
-            "text":"名字"    //用于显示至前端，根据language的不同而显示不同的文字
+            "name":"password",    //列名
+            "text":"密码"    //用于显示至前端，根据language的不同而显示不同的文字
+            "editable":"false"    //是否可以编辑此列数据，通常/user下的editable均为false
         }
     ]
 }
+```
 
-GET /xxx-public 或/xxx-my 或/xxx-all
+### GET /xxx-public或/xxx-my或/xxx-all
+
 对列表进行分页查询
+
+public表示公开的数据
+
+my表示我可见的数据
+
+all表示所有的数据
+
 请求参数：
+
+```text
 筛选：（可不写，视为查找所有type）
 filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
+//scenario中勾选topup和buyInvite，type中勾选discount
+
 语言：（/public下需要此参数，/user下不需要）
 language=zh-CN
-排序：（可不写，可写多个，不写时视为使用默认排序）
-sort=name
+
+按哪些列排序：（不写时，使用默认排序；写多个时，按参数顺序依次排序）
+sort=password&sort=id
+
+显示哪些列：（不写时，显示所有列，写多个时，按参数顺序全部显示）
+column.password=desc&column.id=asc
+//按password：desc，id asc排序
+
 每页容量：
 number=10
+
 页码：
 page=1
+
 是否查询完整内容：
 full=true（false时仅返回id数组，true时返回完整内容）
-full=false返回：{
+```
+
+返回：
+
+```text
+full=false时返回：{
     "result":"success",
     "ids":[1,2,3,4]
 }
-full=true返回：{
-    "result":"success",
-    "list":...    //根据不同的列表结构而返回不同的list内容
-}
 
-GET /xxx
+full=true时返回：{
+    "result":"success",
+    "list":{
+        //根据不同的列表结构而返回不同的list内容
+    }
+}
+```
+
+### GET /xxx
+
 对列表进行精确查询
+
 请求参数：
+
+```text
 id=123（可以同时查询多个id）
-返回结果的结构与分页查询的full=true返回结构相同
+```
+
+返回结果：
+
+```text
+结构与分页查询的full=true返回结构相同
+```
 
 前端既可以完全支持sort和type参数，允许用户对列表进行筛选和排序
+
 也可以跳过sort和type直接使用full=true显示列表
-也可以通过cookie保存sort和type等
+
+可以通过cookie保存sort和type等
+
+### POST /xxx-edit
+
+编辑或新增列表中的一项或多项
+
+请求参数：
+
+```text
+{
+    "list":[
+        {
+            "id":0    //id为0时表示新增，不为0时表示编辑，后端会确认id是否都存在
+            "email":"222@qq.com"    //仅当editable为true时才可以编辑
+        }
+    ]
+}
 ```
 
