@@ -13,11 +13,11 @@
 
 ## 列表查询
 
-后端提供了大量的列表查询API，HTTP方法均为GET且格式统一：
+> 后端提供了大量的列表查询API，格式统一：
 
 ### GET /xxx-filter
 
-查询【列表支持的filter（筛选）】，用户可以通过filter筛选显示列表内容
+> 查询【列表支持的filter（筛选）】，用户可以通过filter筛选显示列表内容
 
 使用场景：
 
@@ -76,7 +76,7 @@ language=zh-CN（/public下需要此参数，/user下不需要）
 
 ### GET /xxx-column
 
-查询【列表的所有column（列名）】
+> 查询【列表的所有column（列名）】
 
 请求参数：
 
@@ -99,15 +99,9 @@ language:zh-CN（/public下需要此参数，/user下不需要）
 }
 ```
 
-### GET /xxx-public或/xxx-my或/xxx-all
+### GET /xxx-public（公开）或/xxx-my（我可见）或/xxx-all（所有）
 
-对列表进行分页查询
-
-public表示公开的数据
-
-my表示我可见的数据
-
-all表示所有的数据
+> 对列表进行分页查询
 
 请求参数：
 
@@ -146,15 +140,17 @@ full=false时返回：{
 
 full=true时返回：{
     "result":"success",
-    "list":{
-        //根据不同的列表结构而返回不同的list内容
-    }
+    "list":[
+        {
+            ...    //根据不同的列表结构而返回不同的list内容
+        }
+    ]
 }
 ```
 
 ### GET /xxx
 
-对列表进行精确查询
+> 对列表进行精确查询
 
 请求参数：
 
@@ -176,7 +172,7 @@ id=123（可以同时查询多个id）
 
 ### POST /xxx-edit
 
-编辑或新增列表中的一项或多项
+> 编辑或新增列表中的一项或多项
 
 请求参数：
 
@@ -188,6 +184,18 @@ id=123（可以同时查询多个id）
             "email":"222@qq.com"    //仅当editable为true时才可以编辑
         }
     ]
+}
+```
+
+## POST /xxx-remove
+
+> 删除列表中的一项或多项
+
+请求参数：
+
+```text
+{
+    "list":["2","3"]    //仅id
 }
 ```
 
