@@ -6,7 +6,6 @@ notice（公告列表）、order（订单列表）、finance（财务记录）�
 
 ```text
 例：查询notice（公告）列表：
-notice-filter
 notice-column
 notice-my
 notice

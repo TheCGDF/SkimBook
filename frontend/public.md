@@ -38,7 +38,6 @@ GET currency:
 node列表查询：
 
 ```text
-node-filter
 node-column
 node-public
 node
@@ -60,7 +59,6 @@ node-public（full=true）和node返回结构：{
 notice列表查询:
 
 ```text
-notice-filter
 notice-column
 notice-public
 notice
