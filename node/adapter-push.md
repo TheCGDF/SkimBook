@@ -48,7 +48,7 @@ v2ray配置更新：{
 v2ray用户新增：{
     "element":"v2ray",
     "operation":"add",
-    "user":[
+    "users":[
         {
             "email":"ccc@dd.com",
             "uuid":"xxxxxxxxx",
@@ -61,12 +61,12 @@ v2ray用户新增：{
 v2ray用户更新：{
     "element":"v2ray",
     "operation":"update",
-    "userOld":[
+    "usersOld":[
         {
             "email":"uuu@vv.com"    //email作为v2ray的用户标识，仅需提供email
         }
     ],
-    "userNew":[
+    "usersNew":[
         {
             //此处同上方新增
         }
@@ -76,8 +76,8 @@ v2ray用户更新：{
 v2ray用户删除：{
     "element":"v2ray",
     "operation":"remove",
-    "user":[
-        "uuu@vv.com"      //删除时只有email字段
+    "users":[
+        {"email":"uuu@vv.com"}      //删除时只有email字段
     ]
 }
 ```
@@ -88,7 +88,7 @@ v2ray用户删除：{
 ss用户新增：{
     "element":"shadowsocks",
     "operation":"add",
-    "user":[
+    "users":[
         {
             "email":"sss@dd.com",
             "speed": 50,
@@ -102,12 +102,12 @@ ss用户新增：{
 ss用户更新：{
     "element":"shadowsocks",
     "operation":"update",
-    "userOld":[
+    "usersOld":[
         {
             "email":"uuu@vv.com",  //email作为ss的用户标识，仅需提供email
         }
     ],
-    "userNew":[
+    "usersNew":[
         {
             //此处同上方新增
         }
@@ -117,7 +117,7 @@ ss用户更新：{
 ss用户删除：{
     "element":"shadowosocks",
     "operation":"remove",
-    "user":[
+    "users":[
         {"email":"uuu@vv.com"}      //删除时只有email字段
     ]
 }

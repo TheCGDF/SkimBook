@@ -45,7 +45,7 @@ node
 
 node-public（full=true）和node返回结构：{
     "result":"success",
-    "list":[
+    "items":[
         "node":8,
         "name":"美国1000000Gbps CN4线路",
         "menu":[
@@ -67,7 +67,7 @@ notice
 
 notice-public（full=true）和notice返回结构：{
     "result":"success",
-    "list":[
+    "items":[
         {
             "title":"hello",
             "content":"this is ..."

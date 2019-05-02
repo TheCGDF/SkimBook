@@ -41,11 +41,11 @@ language=zh-CN（/public下需要此参数，/user下不需要）
 ```text
 {
     "result":"success",
-    "category":[    //如果列表没有任何filter以供筛选时，也会返回一个空category数组
+    "categories":[    //如果列表没有任何filter以供筛选时，也会返回一个空categories数组
         {
             "name":"scenario",    //类别名：使用场景
             "text":"使用场景",    //文字说明，根据language的不同而显示不同的文字
-            "filter":[
+            "filters":[
                 {
                     "name":"topup",
                     "text":"充值"
@@ -59,7 +59,7 @@ language=zh-CN（/public下需要此参数，/user下不需要）
         {
             "name":"type",    //类别名：优惠方式
             "text":"优惠方式",
-            "filter":[
+            "filters":[
                 {
                     "name":"discount",
                     "text":"折扣"
@@ -89,7 +89,7 @@ language:zh-CN（/public下需要此参数，/user下不需要）
 ```text
 {
     "result":"success",
-    "column":[
+    "columns":[
         {
             "name":"password",    //列名
             "text":"密码"    //用于显示至前端，根据language的不同而显示不同的文字
@@ -114,10 +114,10 @@ filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
 language=zh-CN
 
 按哪些列排序：（不写时，使用默认排序；写多个时，按参数顺序依次排序）
-sort=password&sort=id
+sort.password=desc&sort.id=asc
 
-显示哪些列：（不写时，显示所有列，写多个时，按参数顺序全部显示）
-column.password=desc&column.id=asc
+显示哪些列：（不写时，显示所有列，写多个时，按参数顺序依次显示）
+column=password&column=id
 //按password：desc，id asc排序
 
 每页容量：
@@ -135,12 +135,12 @@ full=true（false时仅返回id数组，true时返回完整内容）
 ```text
 full=false时返回：{
     "result":"success",
-    "ids":[1,2,3,4]
+    "items":[1,2,3,4]
 }
 
 full=true时返回：{
     "result":"success",
-    "list":[
+    "items":[
         {
             ...    //根据不同的列表结构而返回不同的list内容
         }
@@ -178,7 +178,7 @@ id=123（可以同时查询多个id）
 
 ```text
 {
-    "list":[
+    "items":[
         {
             "id":0    //id为0时表示新增，不为0时表示编辑，后端会确认id是否都存在
             "email":"222@qq.com"    //仅当editable为true时才可以编辑
@@ -195,7 +195,7 @@ id=123（可以同时查询多个id）
 
 ```text
 {
-    "list":["2","3"]    //仅id
+    "items":["2","3"]    //仅id
 }
 ```
 
