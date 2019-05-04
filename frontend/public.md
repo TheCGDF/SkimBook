@@ -1,3 +1,7 @@
+---
+description: 公共API，无需登录即可调用
+---
+
 # public
 
 GET language:

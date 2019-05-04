@@ -1,3 +1,7 @@
+---
+description: 账户类API
+---
+
 # account
 
 POST send-verification:
