@@ -1,7 +1,7 @@
 # Table of contents
 
 * [首页](README.md)
-* [设计](she-ji.md)
+* [设计](design.md)
 * [前端API](frontend/README.md)
   * [init](frontend/init.md)
   * [public](frontend/public.md)
