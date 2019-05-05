@@ -56,7 +56,7 @@ language:zh-CN（/public下需要此参数，/user下不需要）
 请求参数：
 
 ```text
-筛选：（可不写，视为查找所有type）
+筛选：（不写时，视为查找所有type）
 filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
 //scenario列筛选topup和buyInvite，type列筛选discount
 
@@ -66,9 +66,9 @@ language=zh-CN
 按哪些列排序：（不写时，使用默认排序；写多个时，按参数顺序依次排序）
 sort.password=desc&sort.id=asc
 
-显示哪些列：（不写时，显示所有列，写多个时，按参数顺序依次显示）
+显示哪些列：（不写时，显示所有列;写多个时，按参数顺序依次显示）
 column=password&column=id
-//按password：desc，id asc排序
+//按password：desc，id：asc排序
 
 每页容量：
 number=10
@@ -114,21 +114,14 @@ id=123（可以同时查询多个id）
 结构与分页查询的full=true返回结构相同
 ```
 
-### POST /xxx-edit
+### GET /xxx-edit
 
-> 编辑或新增列表中的一项或多项
+> 获取xxx的\[编辑/新建\]页面
 
 请求参数：
 
 ```text
-{
-    "items":[
-        {
-            "id":0    //id为0时表示新增，不为0时表示编辑，后端会确认id是否都存在
-            "email":"222@qq.com"    //仅当editable为true时才可以编辑
-        }
-    ]
-}
+id=234（如果为0，则为新建）
 ```
 
 ### POST /xxx-remove
@@ -142,4 +135,72 @@ id=123（可以同时查询多个id）
     "items":["2","3"]    //仅id
 }
 ```
+
+## 编辑框
+
+编辑框用于列表查询的/xxx-edit和/admin/config-edit的返回中
+
+编辑框有以下种类：
+
+| type 种类 | check 检查 |
+| :--- | :--- |
+| integer 整数 | 范围区间检查，如：\[1,4\)U{6,7}，这是一个区间和集合的并集 |
+| decimal 小数 | 范围区间检查，如：\(3.8,6\] |
+| string 字符串 | email，检查是否符合email |
+|  | domain，检查是否符合域名 |
+|  | address，检查是否符合网络地址（IP或域名） |
+|  | digital，检查是否是数码单位数，如：20M，3G |
+| array 下拉菜单 | 可选内容数组，如：admin=管理员&banned=被封禁用户 |
+| bool 开关 | 值只能为true或false |
+| date 时间 | 范围区间检查，\[2019/03/21,2020/01/01\) |
+
+`种类`用于告知前端选择合适的编辑框，如：
+
+```text
+array种类通常用下拉菜单显示
+bool种类则用开关控件显示
+integer、decimal既可以使用普通文字编辑框控件，也可以使用数字控件
+date既可以使用普通文字编辑控件，也可以使用日历控件
+```
+
+`检查`并不强制要求实现，甚至最简单粗暴的做法就是：全部使用普通文字编辑框，然后把`检查`以文字注释的方式标在旁边
+
+使用场景：
+
+```text
+通过GET /user/admin/user-edit?id=233
+可能收到返回：{
+    "edits":[
+        {
+            "name":"email",
+            "text":"邮箱",
+            "type":"string",    //显示普通的文字编辑框
+            "check":"email",    //这个string应当是一个email
+            "value":"xxx@yy.com"    //这个文字编辑框的默认值
+        },
+        {
+            "name":"role",
+            "text":"角色",
+            "type":"array",
+            "check":"admin=管理员&banned=被封禁用户&common=普通用户",
+            //前端显示一个下拉菜单，文字分别是“管理员”、“被封禁用户”、“普通用户”
+            "value":"common",    //这个用户是一个普通用户，所以默认选择common
+        },
+        ...    //其他编辑项
+    ]
+}
+
+通过POST /user/admin/user-update
+对值进行更新：{
+    "id":"233",
+    "updates":[
+        {
+            "name":"role",
+            "value":"admin"
+        }
+    ]
+}
+```
+
+/admin/config-edit也使用此类返回
 
