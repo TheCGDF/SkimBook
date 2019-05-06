@@ -49,7 +49,7 @@ language:zh-CN（/public下需要此参数，/user下不需要）
 }
 ```
 
-### GET /xxx-public（公开）或/xxx-my（我可见）或/xxx-all（所有）
+### GET /xxx-list
 
 > 对列表进行分页查询
 

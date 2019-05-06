@@ -43,7 +43,7 @@ node列表查询：
 
 ```text
 node-column
-node-public
+node-list
 node
 
 node-public（full=true）和node返回结构：{
@@ -64,7 +64,7 @@ notice列表查询:
 
 ```text
 notice-column
-notice-public
+notice-list
 notice
 
 notice-public（full=true）和notice返回结构：{
@@ -75,6 +75,14 @@ notice-public（full=true）和notice返回结构：{
             "content":"this is ..."
         }
     ]
+}
+```
+
+GET confusion：
+
+```text
+获取混淆验证码：{
+    ...    //待定
 }
 ```
 
