@@ -32,8 +32,10 @@ language:zh-CN（/public下需要此参数，/user下不需要）
     "result":"success",
     "columns":[
         {
-            "name":"role",    //列名
-            "text":"角色"    //用于显示至前端，根据language的不同而显示不同的文字
+            "name":"menu",    //列名
+            "text":"菜单"    //用于显示至前端，根据language的不同而显示不同的文字
+            "reference":"false"/"true",    //后续部分会解释
+            
             "filters":[    //适用于该列的筛选
                 {
                     "name":"admin",
@@ -63,18 +65,18 @@ filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
 语言：（/public下需要此参数，/user下不需要）
 language=zh-CN
 
-按哪些列排序：（不写时，使用默认排序；写多个时，按参数顺序依次排序）
-sort.password=desc&sort.id=asc
-
-显示哪些列：（不写时，显示所有列;写多个时，按参数顺序依次显示）
-column=password&column=id
-//按password：desc，id：asc排序
+按哪列排序：（不写时，使用默认排序）
+sort=password&asc=true
+//按password升续排列
 
 每页容量：
 number=10
 
 页码：
 page=1
+
+查找：
+search=hello
 
 是否查询完整内容：
 full=true（false时仅返回id数组，true时返回完整内容）
@@ -90,10 +92,10 @@ full=false时返回：{
 
 full=true时返回：{
     "result":"success",
-    "items":[
-        {
-            ...    //根据不同的列表结构而返回不同的list内容
-        }
+    "items":[    //根据column返回一个list内容的二维数组
+        [
+            ...
+        ]
     ]
 }
 ```
@@ -113,6 +115,90 @@ id=123（可以同时查询多个id）
 ```text
 结构与分页查询的full=true返回结构相同
 ```
+
+### reference用法
+
+/xxx-column中提及到，column有一个reference属性，值为false/true
+
+值为false时，说明list返回的就是很直白的数据
+
+比如/node-list返回以下数据：
+
+```text
+"items":[
+    {
+        "name":"中国A",    //节点名，reference:false
+        "online":2    //在线人数，reference:false
+    }
+]
+```
+
+对应生成的列表就是：
+
+| 节点名 | 在线人数 |
+| :--- | :--- |
+| 中国A | 2 |
+
+
+
+当值为true时，说明这个column涉及另一张表
+
+比如/order-column返回以下数据：
+
+```text
+"columns":[
+    {
+        "name":"time"
+        "text":"订单时间",
+        "reference":"false"    //这里为false，则什么都不用管
+    },
+    {
+        "name":"menu"
+        "text":"菜单",
+        "reference":"true"    //这里为true，说明一定存在/menu列表查询和精确查询
+    }    
+]
+```
+
+reference为true的column，返回的内容是一个id
+
+接着上面的例子，/order-list返回以下数据：
+
+```text
+"items":[
+    [
+        "2019-01-01 01:00:00",    //name，reference:false
+        1,    //menu，reference:true，这里返回的是一个node的id
+    ],
+    [
+        "2019-01-02 02:00:00",
+        2,
+    ]
+]
+```
+
+reference的显示方法相当自由，可以显示一串字符串：
+
+（因为reference为true，所以一定存在/menu列表查询和精确查询）
+
+| 订单时间 | 菜单 |
+| :--- | :--- |
+| 2019-01-01 01:00:00 | 租金：1元 限速：10M 流量价格：1元/G |
+| 2019-01-02 02:00:00 | 租金：2元 限速：20M 流量价格：2元/G |
+
+一个超链接：
+
+| 订单时间 | 菜单 |
+| :--- | :--- |
+| 2019-01-01 01:00:00 | \[菜单1\]\(http://aaa.com/user/menu/1\) |
+| 2019-01-02 02:00:00 | \[菜单2\]\(http://aaa.com/user/menu/2\) |
+
+或者直接什么都不做，直接把id放上去：
+
+| 订单时间 | 菜单 |
+| :--- | :--- |
+| 2019-01-01 01:00:00 | 1 |
+| 2019-01-02 02:00:00 | 2 |
 
 ### GET /xxx-edit
 

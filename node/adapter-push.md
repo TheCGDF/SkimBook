@@ -13,7 +13,7 @@
 
 其余推送的内容由web端插件控制
 
-如果web端安装了v2ray插件，则会收到v2ray的json：
+如果web端启用了v2ray，则会收到v2ray的json：
 
 ```text
 v2ray配置更新：{
@@ -45,81 +45,62 @@ v2ray配置更新：{
     }
 }
 
-v2ray用户新增：{
+v2ray用户变更：{
     "element":"v2ray",
-    "operation":"add",
-    "users":[
+    "operation":"user",
+    "removes":[
+        {"email":"uuu@vv.com"}    //删除时只有email字段
+    ],
+    "updates":[    //新增、更新
         {
             "email":"ccc@dd.com",
             "uuid":"xxxxxxxxx",
             "speed": 40,
+            "dam":"禁止通过本站代理访问此页面",
+            //如果该用户触发了审计规则，则会显示该行文字
+            //为什么要每个用户都设置一个dam？因为用户的Language不同，dam的文字也会不同
+            
             "alterId": 2 //默认2 
         }
-    ]
-}
-
-v2ray用户更新：{
-    "element":"v2ray",
-    "operation":"update",
-    "usersOld":[
-        {
-            "email":"uuu@vv.com"    //email作为v2ray的用户标识，仅需提供email
-        }
     ],
-    "usersNew":[
+    "dams":[    //此类用户访问任何链接都会被截断并且显示text
         {
-            //此处同上方新增
+            "email":"...",
+            "text":"余额耗尽，请充值。"
         }
     ]
 }
-
-v2ray用户删除：{
-    "element":"v2ray",
-    "operation":"remove",
-    "users":[
-        {"email":"uuu@vv.com"}      //删除时只有email字段
-    ]
-}
+//先处理remove再处理update和dams
 ```
 
-如果web端安装了shadowsocks插件，则会收到shadowsocks的json：
+如果web端启用了shadowsocks，则会收到shadowsocks的json：
 
 ```text
 ss用户新增：{
     "element":"shadowsocks",
-    "operation":"add",
-    "users":[
+    "operation":"user",
+    "removes":[
+        {"email":"uuu@vv.com"}      //删除时只有email字段
+    ],
+    "updates":[
         {
             "email":"sss@dd.com",
+            "dam":"禁止通过本站代理访问此页面",
+            //如果该用户触发了审计规则，则会显示该行文字
+            //为什么要每个用户都设置一个dam？因为用户的Language不同，dam的文字也会不同
             "speed": 50,
             "port": 110,
             "password":"xxxx",
             "method":"chacha20-ietf"
         }
-    ]
-}
-
-ss用户更新：{
-    "element":"shadowsocks",
-    "operation":"update",
-    "usersOld":[
-        {
-            "email":"uuu@vv.com",  //email作为ss的用户标识，仅需提供email
-        }
     ],
-    "usersNew":[
+    "dams":[    //此类用户访问任何链接都会被截断并且显示text
         {
-            //此处同上方新增
+            "email":"...",
+            "text":"您已被管理员禁用节点使用权"
         }
     ]
 }
-
-ss用户删除：{
-    "element":"shadowosocks",
-    "operation":"remove",
-    "users":[
-        {"email":"uuu@vv.com"}      //删除时只有email字段
-    ]
-}
+//先处理remove再处理update和dams
 ```
 

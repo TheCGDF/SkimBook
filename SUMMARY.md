@@ -13,4 +13,5 @@
   * [验证](node/verify.md)
   * [adapter推送](node/adapter-push.md)
   * [节点推送](node/node-push.md)
+* [开源引用](reference.md)
 
