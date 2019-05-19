@@ -87,11 +87,11 @@ ss用户变更：{
 规则变更：{
     "element":"censorship",
     "removes":[
-        {"id":"1"}
+        {"id":"..."}    //id不是数字，而是字符串（hash id）
     ],
     "update":[
         {
-            "id":2,
+            "id":"...",
             "rule":".*"
         }
     ]

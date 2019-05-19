@@ -107,7 +107,8 @@ full=true时返回：{
 请求参数：
 
 ```text
-id=123（可以同时查询多个id）
+hashId=...（可以同时查询多个id）
+//id不是数字，而是字符串
 ```
 
 返回结果：
@@ -160,7 +161,7 @@ id=123（可以同时查询多个id）
 ]
 ```
 
-reference为true的column，返回的内容是一个id
+reference为true的column，返回的内容是一个hash id
 
 接着上面的例子，/order-list返回以下数据：
 
@@ -168,11 +169,12 @@ reference为true的column，返回的内容是一个id
 "items":[
     [
         "2019-01-01 01:00:00",    //name，reference:false
-        1,    //menu，reference:true，这里返回的是一个node的id
+        "54f7gh",    //menu，reference:true，这里返回的是一个menu的id
+                     //id不是数字，而是字符串（hash id）
     ],
     [
         "2019-01-02 02:00:00",
-        2,
+        "74ngx",
     ]
 ]
 ```
@@ -193,12 +195,12 @@ reference的显示方法相当自由，可以显示一串字符串：
 | 2019-01-01 01:00:00 | \[菜单1\]\(http://aaa.com/user/menu/1\) |
 | 2019-01-02 02:00:00 | \[菜单2\]\(http://aaa.com/user/menu/2\) |
 
-或者直接什么都不做，直接把id放上去：
+或者直接什么都不做，直接把hash id放上去：
 
 | 订单时间 | 菜单 |
 | :--- | :--- |
-| 2019-01-01 01:00:00 | 1 |
-| 2019-01-02 02:00:00 | 2 |
+| 2019-01-01 01:00:00 | 54f7gh |
+| 2019-01-02 02:00:00 | 74ngx |
 
 ### GET /xxx-edit
 
@@ -207,7 +209,7 @@ reference的显示方法相当自由，可以显示一串字符串：
 请求参数：
 
 ```text
-id=234（如果为0，则为新建）
+hashId=6hf76tgk（如果为0，则为新建）
 ```
 
 ### POST /xxx-remove
@@ -218,7 +220,7 @@ id=234（如果为0，则为新建）
 
 ```text
 {
-    "items":["2","3"]    //仅id
+    "items":["i776jk","k67g3"]    //仅hash id
 }
 ```
 
@@ -254,7 +256,7 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 使用场景：
 
 ```text
-通过GET /user/admin/user-edit?id=233
+通过GET /user/admin/user-edit?hashId=23y66b
 可能收到返回：{
     "edits":[
         {
@@ -278,7 +280,7 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 
 通过POST /user/admin/user-update
 对值进行更新：{
-    "id":"233",
+    "hashId":"23y66b",
     "updates":[
         {
             "name":"role",

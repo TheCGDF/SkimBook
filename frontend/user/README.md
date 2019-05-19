@@ -40,7 +40,7 @@ POST node-edit:
 ```text
 编辑节点配置：{
     "type":"shadowsocks",    //类型
-    "node":8,    //node id
+    "node":76iyhkft,    //节点hash id
     ...    //详细配置
 }
 ```
@@ -49,7 +49,7 @@ POST order-buy:
 
 ```text
 下订单：{
-    "menu":8,    //菜单id
+    "menu":6giuyo8,    //菜单 hashid
 }
 ```
 
