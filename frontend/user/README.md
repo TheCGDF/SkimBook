@@ -31,7 +31,7 @@ POST language-edit:
 
 ```text
 编辑用户语言：{
-    "language":"zh-CN"
+    "language":"zh-Hans"
 }
 ```
 

@@ -11,11 +11,11 @@ GET language:
     "result":"success",
     "default":"en-US",
     "languages":[
-        "en-US","zh-CN"
+        "en-US","zh-Hans"
     ]
 }
 
-//https://tools.ietf.org/html/bcp47
+//https://www.cnblogs.com/binsys/articles/2278679.html
 ```
 
 GET timezone:

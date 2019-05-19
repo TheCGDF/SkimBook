@@ -56,27 +56,22 @@ v2ray用户变更：{
             "email":"ccc@dd.com",
             "uuid":"xxxxxxxxx",
             "speed": 40,
-            "dam":"禁止通过本站代理访问此页面",
-            //如果该用户触发了审计规则，则会显示该行文字
-            //为什么要每个用户都设置一个dam？因为用户的Language不同，dam的文字也会不同
-            
+            "language":"zh-Hans",
+            //用户的语言，用于显示审计规则等文字
+            "state":"normal","expired","exhausted","restricted",
+            //用户状态：正常，过期，[余额/流量]耗尽，被禁止使用
+            //如果用户不为normal，用户访问任何页面都只会显示提示文字            
             "alterId": 2 //默认2 
-        }
-    ],
-    "dams":[    //此类用户访问任何链接都会被截断并且显示text
-        {
-            "email":"...",
-            "text":"余额耗尽，请充值。"
         }
     ]
 }
-//先处理remove再处理update和dams
+//先处理remove再处理update
 ```
 
 如果web端启用了shadowsocks，则会收到shadowsocks的json：
 
 ```text
-ss用户新增：{
+ss用户变更：{
     "element":"shadowsocks",
     "operation":"user",
     "removes":[
@@ -85,22 +80,34 @@ ss用户新增：{
     "updates":[
         {
             "email":"sss@dd.com",
-            "dam":"禁止通过本站代理访问此页面",
-            //如果该用户触发了审计规则，则会显示该行文字
-            //为什么要每个用户都设置一个dam？因为用户的Language不同，dam的文字也会不同
+            "language":"zh-Hans",
+            "state":"normal","expired","exhausted","restricted",
             "speed": 50,
             "port": 110,
             "password":"xxxx",
             "method":"chacha20-ietf"
         }
+    ]
+}
+//先处理remove再处理update
+```
+
+审计规则json：
+
+```text
+规则变更：{
+    "element":"censorship",
+    "removes":[
+        {"id":"1"}
     ],
-    "dams":[    //此类用户访问任何链接都会被截断并且显示text
+    "update":[
         {
-            "email":"...",
-            "text":"您已被管理员禁用节点使用权"
+            "id":2,
+            "rule":".*"
         }
     ]
 }
-//先处理remove再处理update和dams
+
+//推荐使用DFA(确定有限状态机)实现，而不是遍历审计规则查看是否符合审计
 ```
 

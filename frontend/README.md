@@ -22,7 +22,7 @@
 请求参数：
 
 ```text
-language:zh-CN（/public下需要此参数，/user下不需要）
+language:zh-Hans（/public下需要此参数，/user下不需要）
 ```
 
 返回：
