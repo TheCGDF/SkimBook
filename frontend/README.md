@@ -87,7 +87,7 @@ full=true（false时仅返回id数组，true时返回完整内容）
 ```text
 full=false时返回：{
     "result":"success",
-    "items":[1,2,3,4]
+    "items":[3a28ja,sadr22,3af34,4r33]
 }
 
 full=true时返回：{
