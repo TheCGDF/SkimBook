@@ -7,7 +7,17 @@
 ```text
 {
     "element":"verify",
-    "value":"xxxxxxxxxxxxxxx"
+    "ciphertext":"xxxxxxxxxxxxxxx"
+}
+```
+
+节点解密后，附上当前版本号，返回：
+
+```text
+{
+    "element":"verify",
+    "plaintext":"xxxxx",
+    "version":"1.2.3"
 }
 ```
 

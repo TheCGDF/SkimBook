@@ -1,6 +1,16 @@
 # adapter推送
 
-其余推送的内容由web端插件控制
+下发安装指定版本指令：
+
+```text
+{
+    "element":"version",
+    "semver":"1.2.*"
+}
+
+//这里使用语义化版本
+//https://semver.org/lang/zh-CN/
+```
 
 如果web端启用了v2ray，则会收到v2ray的json：
 
