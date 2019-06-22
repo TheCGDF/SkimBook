@@ -36,3 +36,5 @@ GET config
 
 POST config-edit
 
+POST resource-refresh
+

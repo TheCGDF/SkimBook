@@ -34,7 +34,6 @@ POST mail-password：
 发送重置密码的验证码（注册时强制要求验证码）：{
     "email":"000@00.com",
     "language":"zh-Hans",
-    "path":"xxx?vv",    //比如这里填xxx?vv，重置邮件中的url就是"www.???.com/xxx?vv=...."
     "captcha":{
         "id":"...",
         "value":"..."
