@@ -74,7 +74,7 @@ POST login:
     "email":"111@11.com",
     "language":"zh-Hans",    //用于决定登录错误时返回message的语言
     "password":"ppp",
-    "expiration":"9000",    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
+    "expiration":9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
     "captcha":{
         "id":"...",
         "value":"..."

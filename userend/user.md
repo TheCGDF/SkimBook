@@ -35,16 +35,6 @@ POST language-edit:
 }
 ```
 
-POST node-edit:
-
-```text
-编辑节点配置：{
-    "type":"shadowsocks",    //类型
-    "node":76iyhkft,    //节点hash id
-    ...    //详细配置
-}
-```
-
 POST order-buy:
 
 ```text
@@ -59,5 +49,25 @@ POST invite-buy:
 购买邀请次数：{
     "number":2    //数量
 }
+```
+
+WSS node:
+
+```text
+节点ws订阅，参考
+https://github.com/TheCGDF/SSD-Windows/wiki/WS%E8%BF%9E%E6%8E%A5%E5%8D%8F%E5%AE%9A
+未完工
+```
+
+POST cache-edit:
+
+```text
+向机场存入客户端缓存
+```
+
+GET cache:
+
+```text
+通过key查询指定缓存
 ```
 
