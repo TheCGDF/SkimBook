@@ -8,6 +8,7 @@
   * [account](userend/account.md)
   * [user](userend/user.md)
   * [admin](userend/admin.md)
+  * [connection](userend/connection.md)
 * [节点端](node/README.md)
   * [Host用户标记](node/host-mark.md)
   * [验证](node/verify.md)

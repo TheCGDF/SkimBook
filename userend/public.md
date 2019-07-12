@@ -82,3 +82,16 @@ GET confusion：
 }
 ```
 
+GET resource：
+
+```text
+获取资源（比如背景图什么的）
+请求参数：
+name=background-public（资源名）
+
+返回：{
+    "result":"success",
+    "resource":"..."
+}
+```
+

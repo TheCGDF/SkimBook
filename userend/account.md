@@ -98,5 +98,18 @@ POST register:
 }
 ```
 
+GET login:
 
+```text
+用于客户端的登录
+
+请求参数：
+authorization:...///一次性授权
+
+使用方式：
+从网站中获取并复制“一次性登录授权”URL，内容类似于：
+https://www.xxx.com/login?authorization=1234qwer
+打开客户端，将该URL粘贴至登录界面，即可授权客户端登录
+授权成功后效果与POST login相同（返回jwt）
+```
 

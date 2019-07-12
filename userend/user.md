@@ -51,14 +51,6 @@ POST invite-buy:
 }
 ```
 
-WSS node:
-
-```text
-节点ws订阅，参考
-https://github.com/TheCGDF/SSD-Windows/wiki/WS%E8%BF%9E%E6%8E%A5%E5%8D%8F%E5%AE%9A
-未完工
-```
-
 POST cache-edit:
 
 ```text
