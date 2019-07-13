@@ -38,11 +38,11 @@ language:zh-Hans（/public下需要此参数，/user下不需要）
             
             "filters":[    //适用于该列的筛选
                 {
-                    "name":"admin",
+                    "value":"admin",
                     "text":"管理员"
                 },
                 {
-                    "name":"affman",
+                    "value":"affman",
                     "text":"affman"
                 }
             ]
