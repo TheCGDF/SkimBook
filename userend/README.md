@@ -1,11 +1,14 @@
 # 用户端（前端/客户端）
 
-大部分POST 返回结果默认为：
+大部分POST返回结果默认为：
 
 ```text
 {
     "result":"success"/"error",
-    "message":"500"    //待定
+    "message":"500",    //待定
+    "jwt":"..."
+    //有时jwt证书临近过期，此时任意POST会触发更新jwt，返回结果会附上新的jwt
+    //因为jwt中保存了language信息，如果用户切换language，POST结果也会收到jwt
 }
 ```
 
@@ -221,6 +224,16 @@ hashId=6hf76tgk（如果为0，则为新建）
 ```text
 {
     "items":["i776jk","k67g3"]    //仅hash id
+}
+```
+
+## JWT内容
+
+```text
+Claims:{
+    "expiration":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
+    "hashId":"a382jw"    //用户的hash id
+    "language":"zh-Hans"    //用户的语言
 }
 ```
 

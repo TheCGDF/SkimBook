@@ -82,6 +82,7 @@ POST login:
 
 成功返回：{
     "result":"success",
+    "message":"登录成功",    //不同的language会返回不同的message
     "jwt":"...."
 }
 ```
