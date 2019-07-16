@@ -12,7 +12,9 @@
 }
 ```
 
+GET/POST返回的`result`还有可能是`logout`，表示需要重新登录。
 
+例如，用户修改密码导致旧的jwt被拉黑。
 
 ## 列表查询
 
@@ -231,7 +233,7 @@ hashId=6hf76tgk（如果为0，则为新建）
 
 ```text
 Claims:{
-    "expiration":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
+    "expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
     "hashId":"a382jw"    //用户的hash id
     "language":"zh-Hans"    //用户的语言
 }
