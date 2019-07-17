@@ -35,6 +35,7 @@ language:zh-Hans（/public下需要此参数，/user下不需要）
 ```text
 {
     "result":"success",
+    "total":122,    //数据总数
     "columns":[
         {
             "name":"menu",    //列名
@@ -84,7 +85,7 @@ page=1
 search=hello
 
 是否查询完整内容：
-full=true（false时仅返回id数组，true时返回完整内容）
+full=true（false时仅返回hash id数组，true时返回完整内容）
 ```
 
 返回：
@@ -92,11 +93,13 @@ full=true（false时仅返回id数组，true时返回完整内容）
 ```text
 full=false时返回：{
     "result":"success",
-    "items":[3a28ja,sadr22,3af34,4r33]
+    "total":122,    //数据总数
+    "items":[3a28ja,sadr22,3af34,4r33]    //hash id数组
 }
 
 full=true时返回：{
     "result":"success",
+    "total":122,    //数据总数
     "items":[    //根据column返回一个list内容的二维数组
         [
             ...
