@@ -108,9 +108,9 @@ full=true时返回：{
 }
 ```
 
-### GET /xxx
+### GET /xxx-pick
 
-> 对列表进行精确查询
+> 查询指定hash id
 
 请求参数：
 

@@ -14,7 +14,7 @@ notice（公告列表）
 例：查询notice（公告）列表：
 GET notice-column
 GET notice-list
-GET notice
+GET notice-pick
 ```
 
 ## 节点与菜单
