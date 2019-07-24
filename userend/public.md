@@ -10,6 +10,13 @@ public中所有API的请求都需要`language`参数
 
 notice（公告列表）
 
+```text
+例：查询notice（公告）列表：
+GET notice-column
+GET notice-list
+GET notice
+```
+
 ## 节点与菜单
 
 GET node:

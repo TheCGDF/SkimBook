@@ -10,9 +10,9 @@ notice（公告列表）、order（订单列表）、finance（财务记录）�
 
 ```text
 例：查询notice（公告）列表：
-notice-column
-notice-list
-notice
+GET notice-column
+GET notice-list
+GET notice
 
 格式同public下的notice列表查询，但不需要language参数
 ```
