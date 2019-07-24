@@ -18,7 +18,9 @@ GET captcha：
 POST mail-register:
 
 ```text
-发送注册验证码（注册时强制要求验证码）：{
+发送注册验证码（注册时强制要求验证码）
+
+请求体：{
     "email":"000@00.com",
     "language":"zh-Hans",
     "captcha":{
@@ -31,7 +33,9 @@ POST mail-register:
 POST mail-password：
 
 ```text
-发送重置密码的验证码（注册时强制要求验证码）：{
+发送重置密码的验证码（注册时强制要求验证码）
+
+请求体：{
     "email":"000@00.com",
     "language":"zh-Hans",
     "captcha":{
@@ -58,7 +62,9 @@ verification:...
 POST password-new:
 
 ```text
-修改密码：{
+修改密码
+
+请求体：{
     "email":"333@33.com",
     "language":"zh-Hans",
     "password":"sss",
@@ -69,7 +75,9 @@ POST password-new:
 POST login:
 
 ```text
-登录：{
+登录
+
+请求体：{
     "account":"111@11.com",    //此处可以是邮箱，也可以是用户的hashid
     "language":"zh-Hans",    //用于决定登录错误时返回message的语言
     "password":"ppp",
@@ -90,7 +98,9 @@ POST login:
 POST register:
 
 ```text
-注册：{
+注册
+
+请求体：{
     "email":"222@22.com",
     "password":"aaa",
     "verification":"vvv",    //邮箱验证码
