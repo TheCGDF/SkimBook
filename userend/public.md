@@ -8,7 +8,7 @@ public中所有API的请求都需要`language`参数
 
 ## 列表查询
 
-notice（公告列表）
+notice（公告列表）、node（节点列表）
 
 ```text
 例：查询notice（公告）列表：
@@ -17,27 +17,7 @@ GET notice-list
 GET notice-pick
 ```
 
-## 节点与菜单
-
-GET node:
-
-```text
-获取节点列表
-请求参数：
-language：语言
-
-返回：{
-    "result":"success",
-    "nodes":[
-        {
-            "hashId":"dwf2323",
-            "region":CN,    //地区缩写，http://www.jctrans.com/tool/gjym.htm
-            "description":"balabala",
-            "status":"online"/"offline"
-        }
-    ]
-}
-```
+## 其他
 
 GET menu:
 
@@ -59,8 +39,6 @@ node:node的hash id
     ]
 }
 ```
-
-## 其他
 
 GET default:
 

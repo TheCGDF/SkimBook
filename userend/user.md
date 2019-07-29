@@ -6,7 +6,7 @@ description: 需要登录才能调用的API
 
 ## 列表查询
 
-notice（公告列表）、order（订单列表）、finance（财务记录）、invite（邀请记录）、traffic（流量记录）
+notice（公告列表）、node（节点列表）、order（订单列表）、finance（财务记录）、invite（邀请记录）、traffic（流量记录）
 
 ```text
 例：查询notice（公告）列表：
@@ -17,28 +17,7 @@ GET notice-pick
 格式同public下的notice列表查询，但不需要language参数
 ```
 
-节点与菜单
-
-GET node:
-
-```text
-获取节点列表
-
-返回：{
-    "result":"success",
-    "nodes":[
-        {
-            "hashId":"dwf2323",
-            "region":CN,    //地区缩写，http://www.jctrans.com/tool/gjym.htm
-            "description":"balabala",
-            "status":"online"/"offline",
-            "actived":12    //激活此节点的人数
-        }
-    ]
-}
-
-//注：此处的返回与/public/node的返回略有不同，增加了actived字段
-```
+## 其他
 
 GET menu:
 
@@ -69,8 +48,6 @@ POST menu-active:
     menus:["s12r4n","zijef9"]//由menu的hash id组成的数组，用于一次性激活一个或多个菜单
 }
 ```
-
-## 其他
 
 GET my:
 
