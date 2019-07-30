@@ -6,6 +6,11 @@ description: 公共API，无需登录即可调用
 
 public中所有API的请求都需要`language`参数
 
+| 数值 | 含义 |
+| :--- | :--- |
+| 1 | en-US |
+| 2 | zh-Hans |
+
 ## 列表查询
 
 notice（公告列表）、node（节点列表）
@@ -50,7 +55,7 @@ language：语言
 返回：{
     "result":"success",
     
-    "languages":"en-US",    //默认语言
+    "languages":1,    //默认语言
     //https://www.cnblogs.com/binsys/articles/2278679.html
     
     "timezone":"Asia/Shanghai",    //本站使用的时区
@@ -58,7 +63,7 @@ language：语言
     //数据库总是以设定的时区存储
     //除非特别说明，API默认返回设定的时区    
     
-    "currency":"CNY",    //最终结算货币
+    "currency":1,    //最终结算货币
     
     "cycle":7    //本站账单周期
     ]

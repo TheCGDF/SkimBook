@@ -65,7 +65,7 @@ POST language-edit:
 编辑用户语言
 
 请求体：{
-    "language":"zh-Hans"
+    "language":1
 }
 ```
 
