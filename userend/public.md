@@ -24,7 +24,7 @@ GET notice-pick
 
 ## 其他
 
-GET menu:
+GET node-menu:
 
 ```text
 获取指定节点的套餐

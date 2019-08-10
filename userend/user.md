@@ -19,7 +19,7 @@ GET notice-pick
 
 ## 其他
 
-GET menu:
+GET node-menu:
 
 ```text
 获取指定节点的套餐
@@ -39,13 +39,20 @@ node:node的hash id
 }
 ```
 
-POST menu-active:
+POST menu-adjust:
 
 ```text
-激活菜单
+调整订单
 
 请求体：{
-    menus:["s12r4n","zijef9"]//由menu的hash id组成的数组，用于一次性激活一个或多个菜单
+    menus:[
+        {
+            "hashId":"d134",
+            "operation":1,
+            //1：立即激活（activate），2：次周期激活（order）
+            //3：立即停用（inactive），4：次周期停用（expire）
+        },
+    ]
 }
 ```
 
