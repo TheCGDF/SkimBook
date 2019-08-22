@@ -4,7 +4,10 @@
 
 ```text
 {
-    "result":"success"/"error",
+    "result":1/2/3,
+    //1：成功
+    //2：失败
+    //3：异常
     "message":"500",    //待定
     "jwt":"..."
     //有时jwt证书临近过期，此时任意POST会触发更新jwt，返回结果会附上新的jwt
@@ -34,7 +37,7 @@ language:zh-Hans（/public下需要此参数，/user下不需要）
 
 ```text
 {
-    "result":"success",
+    "result":1,
     "total":122,    //数据总数
     "columns":[
         {
@@ -69,7 +72,7 @@ filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
 //scenario列筛选topup和buyInvite，type列筛选discount
 
 语言：（/public下需要此参数，/user下不需要）
-language=zh-CN
+language=1
 
 按哪列排序：（不写时，使用默认排序）
 sort=password&asc=true
@@ -92,13 +95,13 @@ full=true（false时仅返回hash id数组，true时返回完整内容）
 
 ```text
 full=false时返回：{
-    "result":"success",
+    "result":1,
     "total":122,    //数据总数
     "items":[3a28ja,sadr22,3af34,4r33]    //hash id数组
 }
 
 full=true时返回：{
-    "result":"success",
+    "result":1,
     "total":122,    //数据总数
     "items":[    //根据column返回一个list内容的二维数组
         [

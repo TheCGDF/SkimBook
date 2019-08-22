@@ -8,7 +8,7 @@ GET captcha：
 
 ```text
 获取一个验证码显示到前端，返回：{
-    "result":"success",
+    "result":1,
     "id":"...",    //验证码的id
     "picture":"..."    //一串base64，解码后是一张PNG
 }
@@ -54,7 +54,7 @@ GET verification-password：
 verification:...
 
 返回：{
-    "result":"success",
+    "result":1,
     "message":"。。。"
 }
 ```
@@ -89,7 +89,7 @@ POST login:
 }
 
 成功返回：{
-    "result":"success",
+    "result":1,
     "message":"登录成功",    //不同的language会返回不同的message
     "jwt":"...."
 }

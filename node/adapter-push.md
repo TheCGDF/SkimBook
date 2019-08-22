@@ -55,11 +55,11 @@ v2ray用户变更：{
             "email":"ccc@dd.com",
             "uuid":"xxxxxxxxx",
             "speed": 40,
-            "language":"zh-Hans",
+            "language":1,
             //用户的语言，用于显示审计规则等文字
-            "state":"normal","expired","exhausted","restricted",
-            //用户状态：正常，过期，[余额/流量]耗尽，被禁止使用
-            //如果用户不为normal，用户访问任何页面都只会显示提示文字            
+            "state":1/2/3/4,
+            //1：正常 2：过期 3：[余额/流量]耗尽 4：被禁止使用
+            //如果state不为1，用户访问任何页面都只会显示提示文字            
             "alterId": 2 //默认2 
         }
     ]
@@ -67,7 +67,7 @@ v2ray用户变更：{
 //先处理remove再处理update
 ```
 
-如果web端启用了shadowsocks，则会收到shadowsocks的json：
+（DEPRECATED：将不会支持shadowsocks）如果web端启用了shadowsocks，则会收到shadowsocks的json：
 
 ```text
 ss用户变更：{

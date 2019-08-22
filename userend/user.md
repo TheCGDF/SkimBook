@@ -27,7 +27,7 @@ GET node-menu:
 node:node的hash id
 
 返回：{
-    "result":"success",
+    "result":1,
     "menus":[
         {
             "hashId":"k19323a",

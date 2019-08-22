@@ -33,7 +33,7 @@ language：语言
 node:node的hash id
 
 返回：{
-    "result":"success",
+    "result":1,
     "menus":[
         {
             "hashId":"k19323a",
@@ -53,7 +53,7 @@ GET default:
 language：语言
 
 返回：{
-    "result":"success",
+    "result":1,
     
     "languages":1,    //默认语言
     //https://www.cnblogs.com/binsys/articles/2278679.html
@@ -80,7 +80,7 @@ GET resource：
 name=background-public（资源名）
 
 返回：{
-    "result":"success",
+    "result":1,
     "resource":"..."
 }
 ```

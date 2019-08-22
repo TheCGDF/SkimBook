@@ -11,7 +11,7 @@
   * [connection](userend/connection.md)
 * [节点端](node/README.md)
   * [Host用户标记](node/host-mark.md)
-  * [验证](node/verify.md)
+  * [初始化验证](node/init.md)
   * [adapter推送](node/adapter-push.md)
   * [节点推送](node/node-push.md)
 * [部署](deploy.md)

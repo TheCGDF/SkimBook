@@ -15,45 +15,17 @@
 }
 ```
 
-节点推送测速（deprecated）：
-
-```text
-{
-    "element":"speed",
-    "operators":[
-        {
-            "brand":"ctcc",  //中国电信
-            "ping":"12",
-            "download":"34",
-            "upload":"56"
-        },
-        {
-            "brand":"cmcc",  //中国移动
-            "ping":"12",
-            "download":"34",
-            "upload":"56"
-        },
-        {
-            "brand":"cucc",  //中国联通
-            "ping":"12",
-            "download":"34",
-            "upload":"56"
-        }
-    ]
-}
-```
-
-节点推送异常：
+节点\[推送/返回\]异常：
 
 ```text
 {
     "element":"exception",
-    "type":"warning"/"error",
+    "type":1/2,
     "message":"xxx"
 }
-//如果是来自后端的json导致的，建议把那条json付在"message"里
-//type为warning的时候插件依然会继续运行
-//type为error时表示“啊，我死了”，后端会立即关闭连接
+//如果是来自adapter的json导致的异常，建议把那条json附在"message"里以便定位问题
+//type为1时插件依然会继续运行
+//type为2时表示“啊，我死了”，后端会立即关闭连接
 ```
 
 节点推送碰撞审计规则记录？
