@@ -119,13 +119,12 @@ full=true时返回：{
 
 ```text
 hashId=...（可以同时查询多个id）
-//id不是数字，而是字符串
 ```
 
 返回结果：
 
 ```text
-结构与分页查询的full=true返回结构相同
+结构与分页查询/xxx-list的full=true返回结构相同
 ```
 
 ### reference用法
@@ -241,7 +240,7 @@ hashId=6hf76tgk（如果为0，则为新建）
 Claims:{
     "expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
     "hashId":"a382jw"    //用户的hash id
-    "language":"zh-Hans"    //用户的语言
+    "language":2    //用户的语言
 }
 ```
 
