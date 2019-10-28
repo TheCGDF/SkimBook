@@ -1,5 +1,13 @@
 # 用户端（前端/客户端）
 
+## Demo
+
+测试后端地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-column)
+
+测试例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-column)
+
+## 通用返回结果
+
 大部分POST返回结果默认为：
 
 ```text
