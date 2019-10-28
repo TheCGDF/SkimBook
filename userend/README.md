@@ -4,7 +4,7 @@
 
 测试后端地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-column)
 
-测试例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-column)
+测试示例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-column)
 
 ## 通用返回结果
 
