@@ -24,17 +24,32 @@ GET node-menu:
 ```text
 获取指定节点的套餐
 请求参数：
-node:node的hash id
+node:node的hash id，可多个
 
 返回：{
     "result":1,
     "menus":[
-        {
-            "hashId":"k19323a",
-            "rent":3.0,    //周期租金
-            "ratio":2.0    //流量价格（？元/G）
-            "speed":10    //限速，单位M
-        }
+        [//第1个node的menu
+            {
+                "hashId":"k19323a",
+                "rent":3.0,    //周期租金
+                "ratio":2.0    //流量价格（？元/G）
+                "speed":10    //限速，单位M
+            }
+            {
+                "hashId":"sd545d",
+                "rent":1.0,    //周期租金
+                "ratio":5.0    //流量价格（？元/G）
+                "speed":10    //限速，单位M
+            }
+        ],[//第2个node的menu
+            {
+                "hashId":"g4423a",
+                "rent":3.0,    //周期租金
+                "ratio":2.0    //流量价格（？元/G）
+                "speed":10    //限速，单位M
+            }
+        ]
     ]
 }
 ```
@@ -72,7 +87,7 @@ POST language-edit:
 编辑用户语言
 
 请求体：{
-    "language":1
+    "language":"en"
 }
 ```
 

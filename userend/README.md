@@ -38,7 +38,7 @@ GET/POST返回的`result`还有可能是`logout`，表示需要重新登录。
 请求参数：
 
 ```text
-language:2（/public下需要此参数，/user下不需要）
+language:zh-Hans（/public下需要此参数，/user下不需要）
 ```
 
 返回：

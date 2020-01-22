@@ -6,10 +6,33 @@ description: 公共API，无需登录即可调用
 
 public中所有API的请求都需要`language`参数
 
-| 数值 | 含义 |
-| :--- | :--- |
-| 1 | en-US |
-| 2 | zh-Hans |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left"> <b>Culture Name</b>
+      </th>
+      <th style="text-align:left">
+        <p><b>Locale</b>
+        </p>
+        <p><b>Language Country/Region</b>en-US</p>
+      </th>
+      <th style="text-align:left"> <b>Local<br />language name</b>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">en</td>
+      <td style="text-align:left">English</td>
+      <td style="text-align:left">English</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">zh-Hans</td>
+      <td style="text-align:left">Chinese (Simplified)</td>
+      <td style="text-align:left">&#x4E2D;&#x6587;(&#x7B80;&#x4F53;)</td>
+    </tr>
+  </tbody>
+</table>参考：[https://www.cnblogs.com/binsys/articles/2278679.html](https://www.cnblogs.com/binsys/articles/2278679.html)
 
 ## 列表查询
 
@@ -54,17 +77,13 @@ language：语言
 
 返回：{
     "result":1,
-    
-    "languages":1,    //默认语言
-    //https://www.cnblogs.com/binsys/articles/2278679.html
-    
+    "languages":"en",    //默认语言    
     "timezone":"Asia/Shanghai",    //本站使用的时区
     //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     //数据库总是以设定的时区存储
     //除非特别说明，API默认返回设定的时区    
-    
-    "currency":1,    //最终结算货币
-    
+    "currency":"CNY",    //最终结算货币
+    //https://en.wikipedia.org/wiki/ISO_4217
     "cycle":7    //本站账单周期
     ]
 }
