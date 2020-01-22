@@ -22,7 +22,7 @@ POST mail-register:
 
 请求体：{
     "email":"000@00.com",
-    "language":"en",
+    "language":2,
     "captcha":{
         "id":"...",
         "value":"..."
@@ -37,7 +37,7 @@ POST mail-password：
 
 请求体：{
     "email":"000@00.com",
-    "language":"zh-Hans",
+    "language":2,
     "captcha":{
         "id":"...",
         "value":"..."
@@ -66,7 +66,7 @@ POST password-new:
 
 请求体：{
     "email":"333@33.com",
-    "language":"zh-Hans",
+    "language":2,
     "password":"sss",
     "verification":"..."    //验证码
 }
@@ -79,7 +79,7 @@ POST login:
 
 请求体：{
     "account":"111@11.com",    //此处可以是邮箱，也可以是用户的hashid
-    "language":"zh-Hans",    //用于决定登录错误时返回message的语言
+    "language":2,    //用于决定登录错误时返回message的语言
     "password":"ppp",
     "expiry":9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
     "captcha":{
