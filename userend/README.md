@@ -12,18 +12,18 @@
 
 ```text
 {
-    "result":1/2/3,
+    "Result":1/2/3,
     //1：成功
     //2：失败
     //3：异常
-    "message":"500",    //待定
-    "jwt":"..."
+    "Message":"500",    //待定
+    "Jwt":"..."
     //有时jwt证书临近过期，此时任意POST会触发更新jwt，返回结果会附上新的jwt
     //因为jwt中保存了language信息，如果用户切换language，POST结果也会收到jwt
 }
 ```
 
-GET/POST返回的`result`还有可能是`logout`，表示需要重新登录。
+GET/POST返回的`Result`还有可能是`logout`，表示需要重新登录。
 
 例如，用户修改密码导致旧的jwt被拉黑。
 
@@ -38,29 +38,29 @@ GET/POST返回的`result`还有可能是`logout`，表示需要重新登录。
 请求参数：
 
 ```text
-language:2（/public下需要此参数，/user下不需要）
+language:zh-Hans（/public下需要此参数，/user下不需要）
 ```
 
 返回：
 
 ```text
 {
-    "result":1,
-    "total":122,    //数据总数
-    "columns":[
+    "Result":1,
+    "Total":122,    //数据总数
+    "Columns":[
         {
-            "name":"menu",    //列名
-            "text":"菜单"    //用于显示至前端，根据language的不同而显示不同的文字
-            "reference":"false"/"true",    //后续部分会解释
+            "Name":"menu",    //列名
+            "Text":"菜单"    //用于显示至前端，根据language的不同而显示不同的文字
+            "Reference":"false"/"true",    //后续部分会解释
             
-            "filters":[    //适用于该列的筛选
+            "Filters":[    //适用于该列的筛选
                 {
-                    "value":"admin",
-                    "text":"管理员"
+                    "Value":"admin",
+                    "Text":"管理员"
                 },
                 {
-                    "value":"affman",
-                    "text":"affman"
+                    "Value":"affman",
+                    "Text":"affman"
                 }
             ]
         }
@@ -103,15 +103,15 @@ full=true（false时仅返回hash id数组，true时返回完整内容）
 
 ```text
 full=false时返回：{
-    "result":1,
-    "total":122,    //数据总数
-    "items":[3a28ja,sadr22,3af34,4r33]    //hash id数组
+    "Result":1,
+    "Total":122,    //数据总数
+    "Items":[3a28ja,sadr22,3af34,4r33]    //hash id数组
 }
 
 full=true时返回：{
-    "result":1,
-    "total":122,    //数据总数
-    "items":[    //根据column返回一个list内容的二维数组
+    "Result":1,
+    "Total":122,    //数据总数
+    "Items":[    //根据column返回一个list内容的二维数组
         [
             ...
         ]
@@ -126,7 +126,7 @@ full=true时返回：{
 请求参数：
 
 ```text
-hashId=...（可以同时查询多个id）
+hash-id=...（可以同时查询多个id）
 ```
 
 返回结果：
@@ -144,10 +144,10 @@ hashId=...（可以同时查询多个id）
 比如/node-list返回以下数据：
 
 ```text
-"items":[
+"Items":[
     {
-        "name":"中国A",    //节点名，reference:false
-        "online":2    //在线人数，reference:false
+        "Name":"中国A",    //节点名，reference:false
+        "Online":2    //在线人数，reference:false
     }
 ]
 ```
@@ -165,16 +165,16 @@ hashId=...（可以同时查询多个id）
 比如/order-column返回以下数据：
 
 ```text
-"columns":[
+"Columns":[
     {
-        "name":"time"
-        "text":"订单时间",
-        "reference":"false"    //这里为false，则什么都不用管
+        "Name":"time"
+        "Text":"订单时间",
+        "Reference":"false"    //这里为false，则什么都不用管
     },
     {
-        "name":"menu"
-        "text":"菜单",
-        "reference":"true"    //这里为true，说明一定存在/menu列表查询和精确查询
+        "Name":"menu"
+        "Text":"菜单",
+        "Reference":"true"    //这里为true，说明一定存在/menu列表查询和精确查询
     }    
 ]
 ```
@@ -184,7 +184,7 @@ reference为true的column，返回的内容是一个hash id
 接着上面的例子，/order-list返回以下数据：
 
 ```text
-"items":[
+"Items":[
     [
         "2019-01-01 01:00:00",    //name，reference:false
         "54f7gh",    //menu，reference:true，这里返回的是一个menu的id
@@ -227,7 +227,7 @@ reference的显示方法相当自由，可以显示一串字符串：
 请求参数：
 
 ```text
-hashId=6hf76tgk（如果为0，则为新建）
+hash-id=6hf76tgk（如果为0，则为新建）
 ```
 
 ### POST /xxx-remove
@@ -238,7 +238,7 @@ hashId=6hf76tgk（如果为0，则为新建）
 
 ```text
 {
-    "items":["i776jk","k67g3"]    //仅hash id
+    "Items":["i776jk","k67g3"]    //仅hash id
 }
 ```
 
@@ -246,9 +246,9 @@ hashId=6hf76tgk（如果为0，则为新建）
 
 ```text
 Claims:{
-    "expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
-    "hashId":"a382jw"    //用户的hash id
-    "language":2    //用户的语言
+    "Expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
+    "HashId":"a382jw"    //用户的hash id
+    "Language":2    //用户的语言
 }
 ```
 
@@ -286,21 +286,21 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 ```text
 通过GET /user/admin/user-edit?hashId=23y66b
 可能收到返回：{
-    "edits":[
+    "Edits":[
         {
-            "name":"email",
-            "text":"邮箱",
-            "type":"string",    //显示普通的文字编辑框
-            "check":"email",    //这个string应当是一个email
-            "value":"xxx@yy.com"    //这个文字编辑框的默认值
+            "Name":"email",
+            "Text":"邮箱",
+            "Type":"string",    //显示普通的文字编辑框
+            "Check":"email",    //这个string应当是一个email
+            "Value":"xxx@yy.com"    //这个文字编辑框的默认值
         },
         {
-            "name":"role",
-            "text":"角色",
-            "type":"array",
-            "check":"admin=管理员&banned=被封禁用户&common=普通用户",
+            "Name":"role",
+            "Text":"角色",
+            "Type":"array",
+            "Check":"admin=管理员&banned=被封禁用户&common=普通用户",
             //前端显示一个下拉菜单，文字分别是“管理员”、“被封禁用户”、“普通用户”
-            "value":"common",    //这个用户是一个普通用户，所以默认选择common
+            "Value":"common",    //这个用户是一个普通用户，所以默认选择common
         },
         ...    //其他编辑项
     ]
@@ -308,8 +308,8 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 
 通过POST /user/admin/user-update
 对值进行更新：{
-    "hashId":"23y66b",
-    "updates":[
+    "HashId":"23y66b",
+    "Updates":[
         {
             "name":"role",
             "value":"admin"
