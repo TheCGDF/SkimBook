@@ -3,7 +3,7 @@
 * [首页](README.md)
 * [设计](design.md)
 * [用户端（前端/客户端）](userend/README.md)
-  * [init](userend/init.md)
+  * [config](userend/init.md)
   * [public](userend/public.md)
   * [account](userend/account.md)
   * [user](userend/user.md)

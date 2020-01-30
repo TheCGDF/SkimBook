@@ -1,16 +1,14 @@
 ---
-description: 初次安设后端并启动后，需要调用的API，以完成初始化设置
+description: 前端向后端提交一些资源文件
 ---
 
-# init
+# config
 
-以下顺序有先后
+所有邮件的内容模板
 
-POST database:
+重置密码的前端路由
 
-```text
-设置数据库
-```
+
 
 GET config:
 
