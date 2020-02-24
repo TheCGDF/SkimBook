@@ -2,7 +2,7 @@
 
 节点推送流量：
 
-```text
+```
 {
     "element":"traffic",
     "users":[
@@ -17,7 +17,7 @@
 
 节点\[推送/返回\]异常：
 
-```text
+```
 {
     "element":"exception",
     "type":1/2,

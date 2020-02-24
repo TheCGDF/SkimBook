@@ -6,7 +6,7 @@ description: 账户类API
 
 GET captcha：
 
-```text
+```
 获取一个验证码显示到前端，返回：{
     "result":1,
     "id":"...",    //验证码的id
@@ -17,7 +17,7 @@ GET captcha：
 
 POST mail-register:
 
-```text
+```
 发送注册验证码（注册时强制要求验证码）
 
 请求体：{
@@ -32,7 +32,7 @@ POST mail-register:
 
 POST mail-password：
 
-```text
+```
 发送重置密码的验证码（注册时强制要求验证码）
 
 请求体：{
@@ -47,7 +47,7 @@ POST mail-password：
 
 GET verification-password：
 
-```text
+```
 判断重置验证码是否正确
 
 请求参数：
@@ -61,7 +61,7 @@ verification:...
 
 POST password-new:
 
-```text
+```
 修改密码
 
 请求体：{
@@ -74,7 +74,7 @@ POST password-new:
 
 POST login:
 
-```text
+```
 登录
 
 请求体：{
@@ -97,7 +97,7 @@ POST login:
 
 POST register:
 
-```text
+```
 注册
 
 请求体：{
@@ -111,7 +111,7 @@ POST register:
 
 GET login:
 
-```text
+```
 用于客户端的登录
 
 请求参数：

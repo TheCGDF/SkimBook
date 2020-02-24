@@ -38,7 +38,7 @@ public中所有API的请求都需要`language`参数
 
 notice（公告列表）、node（节点列表）
 
-```text
+```
 例：查询notice（公告）列表：
 GET notice-column
 GET notice-list
@@ -49,7 +49,7 @@ GET notice-pick
 
 GET node-menu:
 
-```text
+```
 获取指定节点的套餐
 请求参数：
 language：语言
@@ -85,7 +85,7 @@ node:node的hash id，可多个
 
 GET default:
 
-```text
+```
 获取默认配置
 请求参数：
 language：语言
@@ -108,7 +108,7 @@ language：语言
 
 GET resource：
 
-```text
+```
 获取资源（比如背景图什么的）
 请求参数：
 name=background-public（资源名）

@@ -12,13 +12,13 @@ description: 前端向后端提交一些资源文件
 
 GET config:
 
-```text
+```
 获取需要配置的config
 ```
 
 POST resource:
 
-```text
+```
 将前端资源保存至数据库中（比如前端重置密码的url路径，前端配套的url模板）
 ```
 

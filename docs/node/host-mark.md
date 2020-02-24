@@ -6,14 +6,14 @@
 
 需要配置如下：
 
-```text
+```
 "mu_regex":  "%5m.%suffix", /5m 代表取前5个md5值
 "mu_suffix": "microsoft.com",
 ```
 
 函数定义如下:
 
-```text
+```
 func getMD5(data string) string {
 	md5Ctx := md5.New()
 	md5Ctx.Write([]byte(data))

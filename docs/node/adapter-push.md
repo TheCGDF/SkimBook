@@ -2,7 +2,7 @@
 
 下发安装指定版本指令：
 
-```text
+```
 {
     "element":"version",
     "semver":"1.2.*"
@@ -14,7 +14,7 @@
 
 如果web端启用了v2ray，则会收到v2ray的json：
 
-```text
+```
 v2ray配置更新：{
     "element": "v2ray",
     "operation": "config",
@@ -69,7 +69,7 @@ v2ray用户变更：{
 
 （DEPRECATED：将不会支持shadowsocks）如果web端启用了shadowsocks，则会收到shadowsocks的json：
 
-```text
+```
 ss用户变更：{
     "element":"shadowsocks",
     "operation":"user",
@@ -93,7 +93,7 @@ ss用户变更：{
 
 审计规则json：
 
-```text
+```
 规则变更：{
     "element":"censorship",
     "removes":[

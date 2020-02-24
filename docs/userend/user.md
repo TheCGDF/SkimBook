@@ -8,7 +8,7 @@ description: 需要登录才能调用的API
 
 notice（公告列表）、node（节点列表）、order（订单列表）、finance（财务记录）、invite（邀请记录）、traffic（流量记录）
 
-```text
+```
 例：查询notice（公告）列表：
 GET notice-column
 GET notice-list
@@ -21,7 +21,7 @@ GET notice-pick
 
 GET node-menu:
 
-```text
+```
 获取指定节点的套餐
 请求参数：
 node:node的hash id
@@ -41,7 +41,7 @@ node:node的hash id
 
 POST menu-adjust:
 
-```text
+```
 调整订单
 
 请求体：{
@@ -58,7 +58,7 @@ POST menu-adjust:
 
 GET my:
 
-```text
+```
 返回用户信息
 
 请求体：{
@@ -68,7 +68,7 @@ GET my:
 
 POST language-edit:
 
-```text
+```
 编辑用户语言
 
 请求体：{
@@ -78,7 +78,7 @@ POST language-edit:
 
 POST order-buy:
 
-```text
+```
 下订单
 
 请求体：{
@@ -88,7 +88,7 @@ POST order-buy:
 
 POST invite-buy:
 
-```text
+```
 购买邀请次数
 
 请求体：{
@@ -98,13 +98,13 @@ POST invite-buy:
 
 POST cache-edit:
 
-```text
+```
 向机场存入客户端缓存
 ```
 
 GET cache:
 
-```text
+```
 通过key查询指定缓存
 ```
 

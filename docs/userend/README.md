@@ -10,7 +10,7 @@
 
 大部分POST返回结果默认为：
 
-```text
+```
 {
     "Result":1/2/3,
     //1：成功
@@ -37,13 +37,13 @@ GET/POST返回的`Result`还有可能是`logout`，表示需要重新登录。
 
 请求参数：
 
-```text
+```
 language:zh-Hans（/public下需要此参数，/user下不需要）
 ```
 
 返回：
 
-```text
+```
 {
     "Result":1,
     "Total":122,    //数据总数
@@ -74,7 +74,7 @@ language:zh-Hans（/public下需要此参数，/user下不需要）
 
 请求参数：
 
-```text
+```
 筛选：（不写时，视为查找所有type）
 filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
 //scenario列筛选topup和buyInvite，type列筛选discount
@@ -101,7 +101,7 @@ full=true（false时仅返回hash id数组，true时返回完整内容）
 
 返回：
 
-```text
+```
 full=false时返回：{
     "Result":1,
     "Total":122,    //数据总数
@@ -125,13 +125,13 @@ full=true时返回：{
 
 请求参数：
 
-```text
+```
 hash-id=...（可以同时查询多个id）
 ```
 
 返回结果：
 
-```text
+```
 结构与分页查询/xxx-list的full=true返回结构相同
 ```
 
@@ -143,7 +143,7 @@ hash-id=...（可以同时查询多个id）
 
 比如/node-list返回以下数据：
 
-```text
+```
 "Items":[
     {
         "Name":"中国A",    //节点名，reference:false
@@ -164,7 +164,7 @@ hash-id=...（可以同时查询多个id）
 
 比如/order-column返回以下数据：
 
-```text
+```
 "Columns":[
     {
         "Name":"time"
@@ -183,7 +183,7 @@ reference为true的column，返回的内容是一个hash id
 
 接着上面的例子，/order-list返回以下数据：
 
-```text
+```
 "Items":[
     [
         "2019-01-01 01:00:00",    //name，reference:false
@@ -226,7 +226,7 @@ reference的显示方法相当自由，可以显示一串字符串：
 
 请求参数：
 
-```text
+```
 hash-id=6hf76tgk（如果为0，则为新建）
 ```
 
@@ -236,7 +236,7 @@ hash-id=6hf76tgk（如果为0，则为新建）
 
 请求参数：
 
-```text
+```
 {
     "Items":["i776jk","k67g3"]    //仅hash id
 }
@@ -244,7 +244,7 @@ hash-id=6hf76tgk（如果为0，则为新建）
 
 ## JWT内容
 
-```text
+```
 Claims:{
     "Expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
     "HashId":"a382jw"    //用户的hash id
@@ -271,7 +271,7 @@ Claims:{
 
 `type`用于告知前端选择合适的编辑框，如：
 
-```text
+```
 array种类通常用下拉菜单显示
 bool种类则用开关控件显示
 integer、decimal既可以使用普通文字编辑框控件，也可以使用数字控件
@@ -282,7 +282,7 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 
 使用场景：
 
-```text
+```
 通过GET /user/admin/user-edit?hashId=23y66b
 可能收到返回：{
     "Edits":[
