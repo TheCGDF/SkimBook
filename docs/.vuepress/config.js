@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/SkimBook/',
     title: 'Skim Book',
     description: 'Just playing around',
     themeConfig: {
