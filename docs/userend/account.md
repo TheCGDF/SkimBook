@@ -4,17 +4,6 @@ description: 账户类API
 
 # account
 
-GET captcha：
-
-```
-获取一个验证码显示到前端，返回：{
-    "result":1,
-    "id":"...",    //验证码的id
-    "picture":"..."    //一串base64，解码后是一张PNG
-}
-//后面也可能会有audio什么的。。。
-```
-
 POST mail-register:
 
 ```

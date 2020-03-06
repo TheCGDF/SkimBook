@@ -6,33 +6,12 @@ description: 公共API，无需登录即可调用
 
 public中所有API的请求都需要`language`参数
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"> <b>Culture Name</b>
-      </th>
-      <th style="text-align:left">
-        <p><b>Locale</b>
-        </p>
-        <p><b>Language Country/Region</b>en-US</p>
-      </th>
-      <th style="text-align:left"> <b>Local<br />language name</b>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">en</td>
-      <td style="text-align:left">English</td>
-      <td style="text-align:left">English</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">zh-Hans</td>
-      <td style="text-align:left">Chinese (Simplified)</td>
-      <td style="text-align:left">&#x4E2D;&#x6587;(&#x7B80;&#x4F53;)</td>
-    </tr>
-  </tbody>
-</table>参考：[https://www.cnblogs.com/binsys/articles/2278679.html](https://www.cnblogs.com/binsys/articles/2278679.html)
+Culture Name| Locale Language Country/Region | Locallanguage name
+:- | :- | :- |
+en | English | English
+zh-Hans | Chinese (Simplified) | 中文（简体）
+
+参考：[https://www.cnblogs.com/binsys/articles/2278679.html](https://www.cnblogs.com/binsys/articles/2278679.html)
 
 ## 列表查询
 
@@ -46,6 +25,17 @@ GET notice-pick
 ```
 
 ## 其他
+
+GET captcha：
+
+```
+获取一个验证码显示到前端，返回：{
+    "result":1,
+    "id":"...",    //验证码的id
+    "picture":"..."    //一串base64，解码后是一张PNG
+}
+//后面也可能会有audio什么的。。。
+```
 
 GET node-menu:
 
