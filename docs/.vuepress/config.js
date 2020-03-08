@@ -29,12 +29,12 @@ module.exports = {
             },
             {
                 title: '节点端',
-                path: '/node/',
+                path: '/nodeend/',
                 children: [
-                    '/node/host-mark',
-                    '/node/init',
-                    '/node/adapter-push',
-                    '/node/node-push',
+                    '/nodeend/host-mark',
+                    '/nodeend/init',
+                    '/nodeend/adapter-push',
+                    '/nodeend/node-push',
                 ]
             },
             {

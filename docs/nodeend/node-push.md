@@ -4,12 +4,12 @@
 
 ```
 {
-    "element":"traffic",
-    "users":[
+    "Element":"traffic",
+    "Users":[
         {
-            "email":"aaa@bb.com",  // 如果节点有多个tag，则一起上报所有tag的同个用户流量状况
-            "download":"333",
-            "upload":"222"
+            "Email":"aaa@bb.com",  // 如果节点有多个tag，则一起上报所有tag的同个用户流量状况
+            "Download":"333",
+            "Upload":"222"
         }
     ]
 }
@@ -19,9 +19,9 @@
 
 ```
 {
-    "element":"exception",
-    "type":1/2,
-    "message":"xxx"
+     "Element":"exception",
+    "Type":1/2,
+    "Message":"xxx"
 }
 //如果是来自adapter的json导致的异常，建议把那条json附在"message"里以便定位问题
 //type为1时插件依然会继续运行

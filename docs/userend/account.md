@@ -10,11 +10,11 @@ POST mail-register:
 发送注册验证码（注册时强制要求验证码）
 
 请求体：{
-    "email":"000@00.com",
-    "language":2,
-    "captcha":{
-        "id":"...",
-        "value":"..."
+    "Email":"000@00.com",
+    "Language":"en",
+    "Captcha":{
+        "HashId":"...",
+        "Value":"..."
     }
 }
 ```
@@ -25,11 +25,11 @@ POST mail-password：
 发送重置密码的验证码（注册时强制要求验证码）
 
 请求体：{
-    "email":"000@00.com",
-    "language":2,
-    "captcha":{
-        "id":"...",
-        "value":"..."
+    "Email":"000@00.com",
+    "Language":"zh-Hans",
+    "Captcha":{
+        "HashId":"...",
+        "Value":"..."
     }
 }
 ```
@@ -43,8 +43,8 @@ GET verification-password：
 verification:...
 
 返回：{
-    "result":1,
-    "message":"。。。"
+    "Result":1,
+    "Message":"。。。"
 }
 ```
 
@@ -54,10 +54,10 @@ POST password-new:
 修改密码
 
 请求体：{
-    "email":"333@33.com",
-    "language":2,
-    "password":"sss",
-    "verification":"..."    //验证码
+    "Email":"333@33.com",
+    "Language":"zh-Hans",
+    "Password":"sss",
+    "Verification":"..."    //验证码
 }
 ```
 
@@ -67,20 +67,20 @@ POST login:
 登录
 
 请求体：{
-    "account":"111@11.com",    //此处可以是邮箱，也可以是用户的hashid
-    "language":2,    //用于决定登录错误时返回message的语言
-    "password":"ppp",
-    "expiry":9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
-    "captcha":{
-        "id":"...",
-        "value":"..."
+    "Account":"111@11.com",    //此处可以是邮箱，也可以是用户的hashid
+    "Language":"zh-Hans",    //用于决定登录错误时返回message的语言
+    "Password":"ppp",
+    "Expiry":9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
+    "Captcha":{
+        "HashId":"...",
+        "Value":"..."
     }
 }
 
 成功返回：{
-    "result":1,
-    "message":"登录成功",    //不同的language会返回不同的message
-    "jwt":"...."
+    "Result":1,
+    "Message":"登录成功",    //不同的language会返回不同的message
+    "Jwt":"...."
 }
 ```
 
@@ -90,11 +90,11 @@ POST register:
 注册
 
 请求体：{
-    "email":"222@22.com",
-    "password":"aaa",
-    "verification":"vvv",    //邮箱验证码
-    "invite":"aaa",    //邀请码
-    "language":"zh-Hans"    //根据当前页面的语言
+    "Email":"222@22.com",
+    "Password":"aaa",
+    "Verification":"vvv",    //邮箱验证码
+    "Invite":"aaa",    //邀请码
+    "Language":"zh-Hans"    //根据当前页面的语言
 }
 ```
 

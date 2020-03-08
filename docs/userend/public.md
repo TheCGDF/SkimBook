@@ -15,7 +15,11 @@ zh-Hans | Chinese (Simplified) | 中文（简体）
 
 ## 列表查询
 
-notice（公告列表）、node（节点列表）
+| 列表名 | 含义 |
+| :--- | :--- |
+| notice | 公告 |
+| node | 节点 |
+| menu | 节点菜单 |
 
 ```
 例：查询notice（公告）列表：
@@ -30,47 +34,11 @@ GET captcha：
 
 ```
 获取一个验证码显示到前端，返回：{
-    "result":1,
-    "id":"...",    //验证码的id
-    "picture":"..."    //一串base64，解码后是一张PNG
+    "Result":1,
+    "HashId":"...",    //验证码的id
+    "Picture":"..."    //一串base64，解码后是一张PNG
 }
 //后面也可能会有audio什么的。。。
-```
-
-GET node-menu:
-
-```
-获取指定节点的套餐
-请求参数：
-language：语言
-node:node的hash id，可多个
-
-返回：{
-    "result":1,
-    "menus":[
-        [//第1个node的menu
-            {
-                "hashId":"k19323a",
-                "rent":3.0,    //周期租金
-                "ratio":2.0    //流量价格（？元/G）
-                "speed":10    //限速，单位M
-            }
-            {
-                "hashId":"sd545d",
-                "rent":1.0,    //周期租金
-                "ratio":5.0    //流量价格（？元/G）
-                "speed":10    //限速，单位M
-            }
-        ],[//第2个node的menu
-            {
-                "hashId":"g4423a",
-                "rent":3.0,    //周期租金
-                "ratio":2.0    //流量价格（？元/G）
-                "speed":10    //限速，单位M
-            }
-        ]
-    ]
-}
 ```
 
 GET default:
@@ -81,15 +49,15 @@ GET default:
 language：语言
 
 返回：{
-    "result":1,
-    "languages":"en",    //默认语言    
-    "timezone":"Asia/Shanghai",    //本站使用的时区
+    "Result":1,
+    "Languages":"en",    //默认语言    
+    "Timezone":"Asia/Shanghai",    //本站使用的时区
     //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     //数据库总是以设定的时区存储
     //除非特别说明，API默认返回设定的时区    
-    "currency":"CNY",    //最终结算货币
+    "Currency":"CNY",    //最终结算货币
     //https://en.wikipedia.org/wiki/ISO_4217
-    "cycle":7    //本站账单周期
+    "Cycle":7    //本站账单周期
     ]
 }
 
@@ -104,8 +72,8 @@ GET resource：
 name=background-public（资源名）
 
 返回：{
-    "result":1,
-    "resource":"..."
+    "Result":1,
+    "Resource":"..."
 }
 ```
 
