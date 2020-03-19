@@ -23,7 +23,7 @@ zh-Hans | Chinese (Simplified) | 中文（简体）
 
 ```
 例：查询notice（公告）列表：
-GET notice-column
+GET notice-columns
 GET notice-list
 GET notice-pick
 ```

@@ -24,7 +24,7 @@ role（角色）、coupon（优惠券）、action（操作记录）、user（用
 
 ```
 例：查询role（角色）列表：
-role-column
+role-columns
 role-list
 role
 role-edit

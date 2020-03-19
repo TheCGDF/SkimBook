@@ -18,7 +18,7 @@ description: 需要登录才能调用的API
 
 ```
 例：查询notice（公告）列表：
-GET notice-column
+GET notice-columns
 GET notice-list
 GET notice-pick
 

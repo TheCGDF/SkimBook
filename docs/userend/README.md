@@ -31,14 +31,14 @@ GET/POST返回的`Result`还有可能是`logout`，表示需要重新登录。
 
 > 后端提供了大量的列表查询API，格式统一：
 
-### GET /xxx-column
+### GET /xxx-columns
 
 > 查询【列表的所有column（列名）】
 
 请求参数：
 
 ```
-language:zh-Hans（/public下需要此参数，/user下不需要）
+language=zh-Hans（/public下需要此参数，/user下不需要）
 ```
 
 返回：
@@ -76,7 +76,7 @@ language:zh-Hans（/public下需要此参数，/user下不需要）
 
 ```
 筛选：（不写时，视为查找所有type）
-filter.scenario=topup&&filter.scenario=buyInvite&&filter.type=discount
+filter[scenario]=topup*buyInvite&&filter[type]=discount
 //scenario列筛选topup和buyInvite，type列筛选discount
 
 语言：（/public下需要此参数，/user下不需要）
@@ -137,7 +137,7 @@ hash-id=...（可以同时查询多个id）
 
 ### reference用法
 
-/xxx-column中提及到，column有一个reference属性，值为false/true
+/xxx-columns中提及到，column有一个reference属性，值为false/true
 
 值为false时，说明list返回的就是很直白的数据
 
@@ -162,9 +162,10 @@ hash-id=...（可以同时查询多个id）
 
 当值为true时，说明这个column涉及另一张表
 
-比如/order-column返回以下数据：
+比如/order-columns返回以下数据：
 
 ```
+"Total":123,    //数据总数
 "Columns":[
     {
         "Name":"time"
