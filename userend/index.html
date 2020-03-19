@@ -8,7 +8,7 @@
     <meta name="generator" content="VuePress 1.3.1">
     
     
-    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.186f793a.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/15.ddcaf426.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/14.39122869.js"><link rel="prefetch" href="/SkimBook/assets/js/16.221c11a8.js"><link rel="prefetch" href="/SkimBook/assets/js/17.381df6b3.js"><link rel="prefetch" href="/SkimBook/assets/js/18.cea1c7e9.js"><link rel="prefetch" href="/SkimBook/assets/js/19.dcabbe36.js"><link rel="prefetch" href="/SkimBook/assets/js/20.b4c20c96.js"><link rel="prefetch" href="/SkimBook/assets/js/21.dd3c7d69.js"><link rel="prefetch" href="/SkimBook/assets/js/22.e406ade6.js"><link rel="prefetch" href="/SkimBook/assets/js/3.409da322.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.1d09e9f3.js"><link rel="prefetch" href="/SkimBook/assets/js/6.e2012e04.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
+    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.4bbbdc61.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/14.81599d25.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/15.510924d0.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/19.bf269089.js"><link rel="prefetch" href="/SkimBook/assets/js/20.77946372.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.a130259b.js"><link rel="prefetch" href="/SkimBook/assets/js/6.81d5c476.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
     <link rel="stylesheet" href="/SkimBook/assets/css/0.styles.31313faf.css">
   </head>
   <body>
@@ -26,7 +26,7 @@
     //有时jwt证书临近过期，此时任意POST会触发更新jwt，返回结果会附上新的jwt
     //因为jwt中保存了language信息，如果用户切换language，POST结果也会收到jwt
 }
-</code></pre></div><p>GET/POST返回的<code>Result</code>还有可能是<code>logout</code>，表示需要重新登录。</p> <p>例如，用户修改密码导致旧的jwt被拉黑。</p> <h2 id="列表查询"><a href="#列表查询" class="header-anchor">#</a> 列表查询</h2> <blockquote><p>后端提供了大量的列表查询API，格式统一：</p></blockquote> <h3 id="get-xxx-column"><a href="#get-xxx-column" class="header-anchor">#</a> GET /xxx-column</h3> <blockquote><p>查询【列表的所有column（列名）】</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>language:zh-Hans（/public下需要此参数，/user下不需要）
+</code></pre></div><p>GET/POST返回的<code>Result</code>还有可能是<code>logout</code>，表示需要重新登录。</p> <p>例如，用户修改密码导致旧的jwt被拉黑。</p> <h2 id="列表查询"><a href="#列表查询" class="header-anchor">#</a> 列表查询</h2> <blockquote><p>后端提供了大量的列表查询API，格式统一：</p></blockquote> <h3 id="get-xxx-columns"><a href="#get-xxx-columns" class="header-anchor">#</a> GET /xxx-columns</h3> <blockquote><p>查询【列表的所有column（列名）】</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>language=zh-Hans（/public下需要此参数，/user下不需要）
 </code></pre></div><p>返回：</p> <div class="language- extra-class"><pre class="language-text"><code>{
     &quot;Result&quot;:1,
     &quot;Total&quot;:122,    //数据总数
@@ -50,7 +50,7 @@
     ]
 }
 </code></pre></div><h3 id="get-xxx-list"><a href="#get-xxx-list" class="header-anchor">#</a> GET /xxx-list</h3> <blockquote><p>对列表进行分页查询</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>筛选：（不写时，视为查找所有type）
-filter.scenario=topup&amp;&amp;filter.scenario=buyInvite&amp;&amp;filter.type=discount
+filter[scenario]=topup*buyInvite&amp;&amp;filter[type]=discount
 //scenario列筛选topup和buyInvite，type列筛选discount
 
 语言：（/public下需要此参数，/user下不需要）
@@ -88,13 +88,14 @@ full=true时返回：{
 }
 </code></pre></div><h3 id="get-xxx-pick"><a href="#get-xxx-pick" class="header-anchor">#</a> GET /xxx-pick</h3> <blockquote><p>查询指定hash id</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>hash-id=...（可以同时查询多个id）
 </code></pre></div><p>返回结果：</p> <div class="language- extra-class"><pre class="language-text"><code>结构与分页查询/xxx-list的full=true返回结构相同
-</code></pre></div><h3 id="reference用法"><a href="#reference用法" class="header-anchor">#</a> reference用法</h3> <p>/xxx-column中提及到，column有一个reference属性，值为false/true</p> <p>值为false时，说明list返回的就是很直白的数据</p> <p>比如/node-list返回以下数据：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Items&quot;:[
+</code></pre></div><h3 id="reference用法"><a href="#reference用法" class="header-anchor">#</a> reference用法</h3> <p>/xxx-columns中提及到，column有一个reference属性，值为false/true</p> <p>值为false时，说明list返回的就是很直白的数据</p> <p>比如/node-list返回以下数据：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Items&quot;:[
     {
         &quot;Name&quot;:&quot;中国A&quot;,    //节点名，reference:false
         &quot;Online&quot;:2    //在线人数，reference:false
     }
 ]
-</code></pre></div><p>对应生成的列表就是：</p> <table><thead><tr><th style="text-align:left;">节点名</th> <th style="text-align:left;">在线人数</th></tr></thead> <tbody><tr><td style="text-align:left;">中国A</td> <td style="text-align:left;">2</td></tr></tbody></table> <p>当值为true时，说明这个column涉及另一张表</p> <p>比如/order-column返回以下数据：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Columns&quot;:[
+</code></pre></div><p>对应生成的列表就是：</p> <table><thead><tr><th style="text-align:left;">节点名</th> <th style="text-align:left;">在线人数</th></tr></thead> <tbody><tr><td style="text-align:left;">中国A</td> <td style="text-align:left;">2</td></tr></tbody></table> <p>当值为true时，说明这个column涉及另一张表</p> <p>比如/order-columns返回以下数据：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Total&quot;:123,    //数据总数
+&quot;Columns&quot;:[
     {
         &quot;Name&quot;:&quot;time&quot;
         &quot;Text&quot;:&quot;订单时间&quot;,
@@ -163,6 +164,6 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
     ]
 }
 </code></pre></div><p>/admin/config-edit也使用此类返回</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/SkimBook/assets/js/app.186f793a.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/15.ddcaf426.js" defer></script>
+    <script src="/SkimBook/assets/js/app.4bbbdc61.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/14.81599d25.js" defer></script>
   </body>
 </html>
