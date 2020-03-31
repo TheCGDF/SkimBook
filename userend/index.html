@@ -8,7 +8,7 @@
     <meta name="generator" content="VuePress 1.3.1">
     
     
-    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.4bbbdc61.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/14.81599d25.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/15.510924d0.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/19.bf269089.js"><link rel="prefetch" href="/SkimBook/assets/js/20.77946372.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.a130259b.js"><link rel="prefetch" href="/SkimBook/assets/js/6.81d5c476.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
+    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.39a981f5.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/14.ab42a9fe.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/15.510924d0.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/19.bf269089.js"><link rel="prefetch" href="/SkimBook/assets/js/20.77946372.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.a130259b.js"><link rel="prefetch" href="/SkimBook/assets/js/6.81d5c476.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
     <link rel="stylesheet" href="/SkimBook/assets/css/0.styles.31313faf.css">
   </head>
   <body>
@@ -50,11 +50,15 @@
     ]
 }
 </code></pre></div><h3 id="get-xxx-list"><a href="#get-xxx-list" class="header-anchor">#</a> GET /xxx-list</h3> <blockquote><p>对列表进行分页查询</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>筛选：（不写时，视为查找所有type）
-filter[scenario]=topup*buyInvite&amp;&amp;filter[type]=discount
-//scenario列筛选topup和buyInvite，type列筛选discount
+filter[scenario]=1*2&amp;&amp;filter[type]=1
+//scenario列筛选1和2，type列筛选1
 
 语言：（/public下需要此参数，/user下不需要）
 language=1
+
+时区：（/public下需要此参数，/user下不需要）
+timezone=480
+//北京时区+8，则为8*60=480
 
 按哪列排序：（不写时，使用默认排序）
 sort=password&amp;asc=true
@@ -87,6 +91,11 @@ full=true时返回：{
     ]
 }
 </code></pre></div><h3 id="get-xxx-pick"><a href="#get-xxx-pick" class="header-anchor">#</a> GET /xxx-pick</h3> <blockquote><p>查询指定hash id</p></blockquote> <p>请求参数：</p> <div class="language- extra-class"><pre class="language-text"><code>hash-id=...（可以同时查询多个id）
+
+时区：（/public下需要此参数，/user下不需要）
+timezone=480
+//北京时区+8，则为8*60=480
+
 </code></pre></div><p>返回结果：</p> <div class="language- extra-class"><pre class="language-text"><code>结构与分页查询/xxx-list的full=true返回结构相同
 </code></pre></div><h3 id="reference用法"><a href="#reference用法" class="header-anchor">#</a> reference用法</h3> <p>/xxx-columns中提及到，column有一个reference属性，值为false/true</p> <p>值为false时，说明list返回的就是很直白的数据</p> <p>比如/node-list返回以下数据：</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;Items&quot;:[
     {
@@ -164,6 +173,6 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
     ]
 }
 </code></pre></div><p>/admin/config-edit也使用此类返回</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/SkimBook/assets/js/app.4bbbdc61.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/14.81599d25.js" defer></script>
+    <script src="/SkimBook/assets/js/app.39a981f5.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/14.ab42a9fe.js" defer></script>
   </body>
 </html>
