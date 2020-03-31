@@ -76,11 +76,15 @@ language=zh-Hans（/public下需要此参数，/user下不需要）
 
 ```
 筛选：（不写时，视为查找所有type）
-filter[scenario]=topup*buyInvite&&filter[type]=discount
-//scenario列筛选topup和buyInvite，type列筛选discount
+filter[scenario]=1*2&&filter[type]=1
+//scenario列筛选1和2，type列筛选1
 
 语言：（/public下需要此参数，/user下不需要）
 language=1
+
+时区：（/public下需要此参数，/user下不需要）
+timezone=480
+//北京时区+8，则为8*60=480
 
 按哪列排序：（不写时，使用默认排序）
 sort=password&asc=true
@@ -127,6 +131,11 @@ full=true时返回：{
 
 ```
 hash-id=...（可以同时查询多个id）
+
+时区：（/public下需要此参数，/user下不需要）
+timezone=480
+//北京时区+8，则为8*60=480
+
 ```
 
 返回结果：
