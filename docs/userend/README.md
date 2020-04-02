@@ -1,58 +1,37 @@
 # 用户端（前端/客户端）
-
-## Demo
-
-测试后端地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-column)
-
-测试示例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-column)
-
 ## 通用返回结果
-
-大部分POST返回结果默认为：
-
-```
-{
+```json
+大部分POST返回结果：{
     "Result":1/2/3,
     //1：成功
     //2：失败
     //3：异常
-    "Message":"500",    //待定
+    "Message":"500",    //当且仅当失败时存在
     "Jwt":"..."
     //有时jwt证书临近过期，此时任意POST会触发更新jwt，返回结果会附上新的jwt
     //因为jwt中保存了language信息，如果用户切换language，POST结果也会收到jwt
 }
 ```
-
-GET/POST返回的`Result`还有可能是`logout`，表示需要重新登录。
-
-例如，用户修改密码导致旧的jwt被拉黑。
-
 ## 列表查询
-
-> 后端提供了大量的列表查询API，格式统一：
-
+>后端提供了大量的列表查询API，格式统一：
 ### GET /xxx-columns
-
-> 查询【列表的所有column（列名）】
-
-请求参数：
-
+>查询【列表的所有column（列名）】
 ```
-language=zh-Hans（/public下需要此参数，/user下不需要）
+参数示例：language=en
 ```
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| language | 语言，仅/public下需要此参数 | 否，默认en |
 
-返回：
-
-```
-{
+```json
+成功返回：{
     "Result":1,
     "Total":122,    //数据总数
     "Columns":[
         {
             "Name":"menu",    //列名
-            "Text":"菜单"    //用于显示至前端，根据language的不同而显示不同的文字
+            "Text":"菜单",    //用于显示至前端，根据language的不同而显示不同的文字
             "Reference":"false"/"true",    //后续部分会解释
-            
             "Filters":[    //适用于该列的筛选
                 {
                     "Value":"admin",
@@ -67,52 +46,30 @@ language=zh-Hans（/public下需要此参数，/user下不需要）
     ]
 }
 ```
-
 ### GET /xxx-list
-
-> 对列表进行分页查询
-
-请求参数：
-
+>对列表进行分页查询
 ```
-筛选：（不写时，视为查找所有type）
-filter[scenario]=1*2&&filter[type]=1
-//scenario列筛选1和2，type列筛选1
-
-语言：（/public下需要此参数，/user下不需要）
-language=1
-
-时区：（/public下需要此参数，/user下不需要）
-timezone=480
-//北京时区+8，则为8*60=480
-
-按哪列排序：（不写时，使用默认排序）
-sort=password&asc=true
-//按password升续排列
-
-每页容量：
-number=10
-
-页码：
-page=1
-
-查找：
-search=hello
-
-是否查询完整内容：
-full=true（false时仅返回hash id数组，true时返回完整内容）
+参数示例：language=zh-Hans&timezone=480&filter[scenario]=1*2&filter[class]=1&sort=scenario&asc=false&number=10&page=1&search=hello=full=true
 ```
-
-返回：
-
-```
-full=false时返回：{
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| language | 语言，仅/public下需要此参数 | 否，默认en |
+| timezone | 时区，单位分钟，仅/public下需要此参数 | 否，默认+0 |
+| filter\[\] | 列筛选，单列有多个筛选项时用星号（*）隔开 | 否 |
+| sort | 按某列排序 |否 |
+| asc | 排序方向 | 否，默认true |
+| number | 页容量 | 是 |
+| page | 页码 | 是 |
+| search | 关键字查询 | 否 |
+| full | 完整行，false时仅返回hash id | 是 |
+```json
+full=false时成功返回：{
     "Result":1,
     "Total":122,    //数据总数
-    "Items":[3a28ja,sadr22,3af34,4r33]    //hash id数组
+    "Items":["3a28ja","sadr22","3af34,4r33"]    //hash id数组
 }
 
-full=true时返回：{
+full=true时成功返回：{
     "Result":1,
     "Total":122,    //数据总数
     "Items":[    //根据column返回一个list内容的二维数组
@@ -122,37 +79,24 @@ full=true时返回：{
     ]
 }
 ```
-
 ### GET /xxx-pick
-
-> 查询指定hash id
-
-请求参数：
-
+>查询指定hash id
 ```
-hash-id=...（可以同时查询多个id）
-
-时区：（/public下需要此参数，/user下不需要）
-timezone=480
-//北京时区+8，则为8*60=480
-
+参数示例：language=en&timezone=480&hash-ids[]=as3sa&hash-ids[]=4zf23
 ```
-
-返回结果：
-
-```
-结构与分页查询/xxx-list的full=true返回结构相同
-```
-
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| language | 语言，仅/public下需要此参数 | 否，默认en |
+| timezone | 时区，单位分钟，仅/public下需要此参数 | 否，默认+0 |
+| hash-ids\[\] | 想要查询的hash id数组 | 是 |
+返回结构与分页查询/xxx-list的full=true返回结构相同
 ### reference用法
-
 /xxx-columns中提及到，column有一个reference属性，值为false/true
 
 值为false时，说明list返回的就是很直白的数据
 
 比如/node-list返回以下数据：
-
-```
+```json
 "Items":[
     {
         "Name":"中国A",    //节点名，reference:false
@@ -160,20 +104,14 @@ timezone=480
     }
 ]
 ```
-
 对应生成的列表就是：
-
 | 节点名 | 在线人数 |
-| :--- | :--- |
+| :- | :- |
 | 中国A | 2 |
-
-
-
 当值为true时，说明这个column涉及另一张表
 
 比如/order-columns返回以下数据：
-
-```
+```json
 "Total":123,    //数据总数
 "Columns":[
     {
@@ -188,12 +126,10 @@ timezone=480
     }    
 ]
 ```
-
 reference为true的column，返回的内容是一个hash id
 
-接着上面的例子，/order-list返回以下数据：
-
-```
+接上例，/order-list返回以下数据：
+```json
 "Items":[
     [
         "2019-01-01 01:00:00",    //name，reference:false
@@ -206,70 +142,56 @@ reference为true的column，返回的内容是一个hash id
     ]
 ]
 ```
-
 reference的显示方法相当自由，可以显示一串字符串：
 
 （因为reference为true，所以一定存在/menu列表查询和精确查询）
-
 | 订单时间 | 菜单 |
 | :--- | :--- |
 | 2019-01-01 01:00:00 | 租金：1元 限速：10M 流量价格：1元/G |
 | 2019-01-02 02:00:00 | 租金：2元 限速：20M 流量价格：2元/G |
-
 一个超链接：
-
 | 订单时间 | 菜单 |
 | :--- | :--- |
-| 2019-01-01 01:00:00 | \[菜单1\]\(http://aaa.com/user/menu/1\) |
-| 2019-01-02 02:00:00 | \[菜单2\]\(http://aaa.com/user/menu/2\) |
-
+| 2019-01-01 01:00:00 | [菜单1](http://aaa.com/user/menu/1) |
+| 2019-01-02 02:00:00 | [菜单2](http://aaa.com/user/menu/2) |
 或者直接什么都不做，直接把hash id放上去：
-
 | 订单时间 | 菜单 |
 | :--- | :--- |
 | 2019-01-01 01:00:00 | 54f7gh |
 | 2019-01-02 02:00:00 | 74ngx |
-
 ### GET /xxx-edit
-
-> 获取xxx的\[编辑/新建\]页面
-
-请求参数：
-
+>获取xxx的\[编辑/新建\]页面
 ```
-hash-id=6hf76tgk（如果为0，则为新建）
+参数示例：hash-id=6hf76tgk
 ```
-
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| hash-id | hash id | 否，如果不存在，则为新建 |
 ### POST /xxx-remove
-
-> 删除列表中的一项或多项
-
-请求参数：
-
+>删除列表中的一项或多项
 ```
-{
-    "Items":["i776jk","k67g3"]    //仅hash id
+参数示例：{
+    "Items":["i776jk","k67g3"]
 }
 ```
-
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Items | hash id数组 | 是 |
 ## JWT内容
-
-```
+```json
 Claims:{
-    "Expiry":"2019-07-15T03:59:30Z"    //遵循RFC3339且总是UTC时区
-    "HashId":"a382jw"    //用户的hash id
-    "Language":2    //用户的语言
+    "Expiry":"2019-07-15T03:59:30Z",    //遵循RFC3339且总是UTC时区
+    "HashId":"a382jw",    //用户的hash id
+    "Language":2,    //用户的语言
+    "Timezone":3600    //用户的时区
 }
 ```
-
 ## 动态编辑框
-
 动态编辑框用于\[列表查询的xxx-edit/config修改\]等场合，根据后端返回内容动态生成
 
-编辑框有以下\``type`，并且拥有`check`检查条件：
-
+编辑框有以下`type`，并且拥有`check`检查条件：
 | type 种类 | check 检查条件 |
-| :--- | :--- |
+| :- | :- |
 | integer 整数 | 范围区间检查，如：\[1,4\)U{6,7}，这是一个区间和集合的并集 |
 | decimal 小数 | 范围区间检查，如：\(3.8,6\] |
 | string （单行）字符串 | 正则表达式检查 |
@@ -278,21 +200,17 @@ Claims:{
 | bool 开关 | 值只能为true或false |
 | date 日期 | 范围区间检查，如：\[2019/03/21,2020/01/01\) |
 | time 时间 | 范围区间检查，如：\[2019/03/21 12:12:12,2020/01/01 12:12:12\) |
-
 `type`用于告知前端选择合适的编辑框，如：
-
 ```
 array种类通常用下拉菜单显示
 bool种类则用开关控件显示
 integer、decimal既可以使用普通文字编辑框控件，也可以使用数字控件
 date既可以使用普通文字编辑控件，也可以使用日历控件
 ```
-
 `check`用于对编辑框输入值的检查，并不强制要求全部实现，甚至最简单粗暴的做法就是：全部使用普通文字编辑框，然后把`检查`以文字注释的方式标在旁边
 
 使用场景：
-
-```
+```json
 通过GET /user/admin/user-edit?hashId=23y66b
 可能收到返回：{
     "Edits":[
@@ -320,12 +238,11 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
     "HashId":"23y66b",
     "Updates":[
         {
-            "name":"role",
-            "value":"admin"
+            "Name":"role",
+            "Value":"admin"
         }
     ]
 }
 ```
 
 /admin/config-edit也使用此类返回
-

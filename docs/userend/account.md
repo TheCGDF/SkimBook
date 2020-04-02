@@ -1,15 +1,11 @@
 ---
 description: 账户类API
 ---
-
 # account
-
-POST mail-register:
-
-```
-发送注册验证码（注册时强制要求验证码）
-
-请求体：{
+## POST mail-register
+>发送注册验证码（注册时强制要求验证码）
+```json
+参数示例：{
     "Email":"000@00.com",
     "Language":"en",
     "Captcha":{
@@ -18,13 +14,17 @@ POST mail-register:
     }
 }
 ```
-
-POST mail-password：
-
-```
-发送重置密码的验证码（注册时强制要求验证码）
-
-请求体：{
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Email | 邮箱 | 是 |
+| Language | 语言 | 否，默认en |
+| Captcha | 验证码 | 是 |
+| Captcha:HashId | 验证码id | 是 |
+| Captcha:Value | 用户输入的验证码值 | 是 |
+## POST mail-password
+>发送重置密码的验证码（注册时强制要求验证码）
+```json
+参数示例：{
     "Email":"000@00.com",
     "Language":"zh-Hans",
     "Captcha":{
@@ -33,76 +33,99 @@ POST mail-password：
     }
 }
 ```
-
-GET verification-password：
-
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Email | 邮箱 |是 |
+| Language | 语言 | 否，默认en |
+| Captcha | 验证码 | 是 |
+| Captcha:HashId | 验证码id | 是 |
+| Captcha:Value | 用户输入的验证码值 | 是 |
+## GET verification-password
+>判断重置验证码是否正确
 ```
-判断重置验证码是否正确
-
-请求参数：
-verification:...
-
-返回：{
+参数示例：verification=23d32a
+```
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| verification | 验证码 | 是 |
+```json
+成功返回：{
     "Result":1,
-    "Message":"。。。"
+    "Message":"..."
 }
 ```
-
-POST password-new:
-
-```
-修改密码
-
-请求体：{
-    "Email":"333@33.com",
+## POST password-new
+>修改密码
+```json
+参数示例：{
+    "Email":"000@00.com",
     "Language":"zh-Hans",
-    "Password":"sss",
-    "Verification":"..."    //验证码
-}
-```
-
-POST login:
-
-```
-登录
-
-请求体：{
-    "Account":"111@11.com",    //此处可以是邮箱，也可以是用户的hashid
-    "Language":"zh-Hans",    //用于决定登录错误时返回message的语言
-    "Password":"ppp",
-    "Expiry":9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
     "Captcha":{
         "HashId":"...",
         "Value":"..."
     }
 }
-
+```
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Account | 账户 | 是 |
+| Language | 语言 | 否，默认en |
+| Password | 新密码 | 是 |
+| Verification | 邮箱验证码 | 是 |
+## POST login
+>登录
+```json
+请求示例：{
+    "Account":"111@11.com",
+    "Language":"zh-Hans",
+    "Password":"ppp",
+    "Expiry":9000,
+    "Captcha":{
+        "HashId":"...",
+        "Value":"..."
+    }
+}
+```
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Account | 账户 | 是 |
+| Language | 语言 | 否，默认en |
+| Password | 密码 | 是 |
+| Expiry | JWT过期时间，5秒~30天，单位秒 | 是 |
+| Captcha | 验证码 | 是 |
+| Captcha:HashId | 验证码id | 是 |
+| Captcha:Value | 用户输入的验证码值 | 是 |
+```json
 成功返回：{
     "Result":1,
-    "Message":"登录成功",    //不同的language会返回不同的message
     "Jwt":"...."
 }
 ```
-
-POST register:
-
-```
-注册
-
-请求体：{
+## POST register
+> 注册
+```json
+请求示例：{
     "Email":"222@22.com",
     "Password":"aaa",
-    "Verification":"vvv",    //邮箱验证码
-    "Invite":"aaa",    //邀请码
-    "Language":"zh-Hans"    //根据当前页面的语言
+    "Verification":"vvv",
+    "Invite":"aaa",
+    "Language":"zh-Hans"
 }
 ```
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| Email | 邮箱 | 是 |
+| Password | 密码 | 是 |
+| Verification | 邮箱验证码 | 是 |
+| Invite | 邀请码 | 否 |
+| Language | 语言 | 是 |
+## GET login
+> 用于客户端的一链登录，首先在web中获取一次性登录链接，再导入客户端，省去输入网站网址、账户、密码
 
-GET login:
-
+| 请求参数 | 说明 | 是否必须 |
+| :- | :- | :- |
+| authorization | 一次性授权链接 | 是 |
 ```
-用于客户端的登录
-
 请求参数：
 authorization:...///一次性授权
 
