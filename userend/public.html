@@ -8,7 +8,7 @@
     <meta name="generator" content="VuePress 1.3.1">
     
     
-    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.39a981f5.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/19.bf269089.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/14.ab42a9fe.js"><link rel="prefetch" href="/SkimBook/assets/js/15.510924d0.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/20.77946372.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.a130259b.js"><link rel="prefetch" href="/SkimBook/assets/js/6.81d5c476.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
+    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.5be23228.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/19.1b63f3d1.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/14.3ea2e356.js"><link rel="prefetch" href="/SkimBook/assets/js/15.5a3889ed.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/20.c60f2e21.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.6eb88c65.js"><link rel="prefetch" href="/SkimBook/assets/js/6.27fcbdd1.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
     <link rel="stylesheet" href="/SkimBook/assets/css/0.styles.31313faf.css">
   </head>
   <body>
@@ -20,38 +20,30 @@
 GET notice-columns
 GET notice-list
 GET notice-pick
-</code></pre></div><h2 id="其他"><a href="#其他" class="header-anchor">#</a> 其他</h2> <p>GET captcha：</p> <div class="language- extra-class"><pre class="language-text"><code>获取一个验证码显示到前端，返回：{
+</code></pre></div><h2 id="其他"><a href="#其他" class="header-anchor">#</a> 其他</h2> <h3 id="get-captcha"><a href="#get-captcha" class="header-anchor">#</a> GET captcha</h3> <blockquote><p>获取一个验证码显示到前端</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>请求示例：language=en
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code>成功返回：{
     &quot;Result&quot;:1,
     &quot;HashId&quot;:&quot;...&quot;,    //验证码的id
     &quot;Picture&quot;:&quot;...&quot;    //一串base64，解码后是一张PNG
 }
 //后面也可能会有audio什么的。。。
-</code></pre></div><p>GET default:</p> <div class="language- extra-class"><pre class="language-text"><code>获取默认配置
-请求参数：
-language：语言
-
-返回：{
-    &quot;Result&quot;:1,
-    &quot;Languages&quot;:&quot;en&quot;,    //默认语言    
-    &quot;Timezone&quot;:&quot;Asia/Shanghai&quot;,    //本站使用的时区
-    //https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    //数据库总是以设定的时区存储
-    //除非特别说明，API默认返回设定的时区    
-    &quot;Currency&quot;:&quot;CNY&quot;,    //最终结算货币
-    //https://en.wikipedia.org/wiki/ISO_4217
-    &quot;Cycle&quot;:7    //本站账单周期
-    ]
-}
-
-
-</code></pre></div><p>GET resource：</p> <div class="language- extra-class"><pre class="language-text"><code>获取资源（比如背景图什么的）
-请求参数：
-name=background-public（资源名）
-
-返回：{
-    &quot;Result&quot;:1,
-    &quot;Resource&quot;:&quot;...&quot;
-}
+</code></pre></div><h3 id="get-default"><a href="#get-default" class="header-anchor">#</a> GET default</h3> <blockquote><p>获取默认配置</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>请求示例：language=en
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code>成功返回：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Result&quot;</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Languages&quot;</span><span class="token operator">:</span><span class="token string">&quot;en&quot;</span><span class="token punctuation">,</span>    <span class="token comment">//默认语言    </span>
+    <span class="token property">&quot;Timezone&quot;</span><span class="token operator">:</span><span class="token string">&quot;Asia/Shanghai&quot;</span><span class="token punctuation">,</span>    <span class="token comment">//本站使用的时区</span>
+    <span class="token comment">//https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
+    <span class="token comment">//数据库总是以设定的时区存储</span>
+    <span class="token comment">//除非特别说明，API默认返回设定的时区    </span>
+    <span class="token property">&quot;Currency&quot;</span><span class="token operator">:</span><span class="token string">&quot;CNY&quot;</span><span class="token punctuation">,</span>    <span class="token comment">//最终结算货币</span>
+    <span class="token comment">//https://en.wikipedia.org/wiki/ISO_4217</span>
+    <span class="token property">&quot;Cycle&quot;</span><span class="token operator">:</span><span class="token number">7</span>    <span class="token comment">//本站账单周期</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="get-resource"><a href="#get-resource" class="header-anchor">#</a> GET resource</h3> <blockquote><p>获取资源（比如背景图什么的）</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>请求示例：language=en&amp;name=background-public
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr> <tr><td style="text-align:left;">name</td> <td style="text-align:left;">资源名</td> <td style="text-align:left;">是</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code>成功返回：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Result&quot;</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Resource&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+<span class="token punctuation">}</span>
 </code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/SkimBook/userend/init.html" class="prev">
@@ -61,6 +53,6 @@ name=background-public（资源名）
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/SkimBook/assets/js/app.39a981f5.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/19.bf269089.js" defer></script>
+    <script src="/SkimBook/assets/js/app.5be23228.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/19.1b63f3d1.js" defer></script>
   </body>
 </html>

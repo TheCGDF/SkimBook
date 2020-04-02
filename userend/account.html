@@ -8,7 +8,7 @@
     <meta name="generator" content="VuePress 1.3.1">
     
     
-    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.39a981f5.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/15.510924d0.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/14.ab42a9fe.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/19.bf269089.js"><link rel="prefetch" href="/SkimBook/assets/js/20.77946372.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.a130259b.js"><link rel="prefetch" href="/SkimBook/assets/js/6.81d5c476.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
+    <link rel="preload" href="/SkimBook/assets/css/0.styles.31313faf.css" as="style"><link rel="preload" href="/SkimBook/assets/js/app.5be23228.js" as="script"><link rel="preload" href="/SkimBook/assets/js/2.67bc7483.js" as="script"><link rel="preload" href="/SkimBook/assets/js/15.5a3889ed.js" as="script"><link rel="prefetch" href="/SkimBook/assets/js/10.e3477a0d.js"><link rel="prefetch" href="/SkimBook/assets/js/11.31f62871.js"><link rel="prefetch" href="/SkimBook/assets/js/12.88564199.js"><link rel="prefetch" href="/SkimBook/assets/js/13.48188c55.js"><link rel="prefetch" href="/SkimBook/assets/js/14.3ea2e356.js"><link rel="prefetch" href="/SkimBook/assets/js/16.87da21a6.js"><link rel="prefetch" href="/SkimBook/assets/js/17.73b12ce0.js"><link rel="prefetch" href="/SkimBook/assets/js/18.2c548e3a.js"><link rel="prefetch" href="/SkimBook/assets/js/19.1b63f3d1.js"><link rel="prefetch" href="/SkimBook/assets/js/20.c60f2e21.js"><link rel="prefetch" href="/SkimBook/assets/js/21.1cc1b4af.js"><link rel="prefetch" href="/SkimBook/assets/js/3.b92b6370.js"><link rel="prefetch" href="/SkimBook/assets/js/4.f03b7f8e.js"><link rel="prefetch" href="/SkimBook/assets/js/5.6eb88c65.js"><link rel="prefetch" href="/SkimBook/assets/js/6.27fcbdd1.js"><link rel="prefetch" href="/SkimBook/assets/js/7.f131726d.js"><link rel="prefetch" href="/SkimBook/assets/js/8.2a3eb77d.js"><link rel="prefetch" href="/SkimBook/assets/js/9.9b0050ff.js">
     <link rel="stylesheet" href="/SkimBook/assets/css/0.styles.31313faf.css">
   </head>
   <body>
@@ -16,73 +16,57 @@
   Home
 </a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/SkimBook/" class="nav-link">
   Home
-</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/SkimBook/" class="sidebar-link">首页</a></li><li><a href="/SkimBook/design.html" class="sidebar-link">设计</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/SkimBook/userend/" class="sidebar-heading clickable router-link-active open"><span>用户端（前端/客户端）</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/SkimBook/userend/init.html" class="sidebar-link">config</a></li><li><a href="/SkimBook/userend/public.html" class="sidebar-link">public</a></li><li><a href="/SkimBook/userend/account.html" class="active sidebar-link">account</a></li><li><a href="/SkimBook/userend/user.html" class="sidebar-link">user</a></li><li><a href="/SkimBook/userend/admin.html" class="sidebar-link">admin</a></li><li><a href="/SkimBook/userend/connection.html" class="sidebar-link">connection</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/SkimBook/nodeend/" class="sidebar-heading clickable"><span>节点端</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/SkimBook/deploy.html" class="sidebar-link">部署</a></li><li><a href="/SkimBook/reference.html" class="sidebar-link">开源引用（后端）</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="account"><a href="#account" class="header-anchor">#</a> account</h1> <p>POST mail-register:</p> <div class="language- extra-class"><pre class="language-text"><code>发送注册验证码（注册时强制要求验证码）
-
-请求体：{
-    &quot;Email&quot;:&quot;000@00.com&quot;,
-    &quot;Language&quot;:&quot;en&quot;,
-    &quot;Captcha&quot;:{
-        &quot;HashId&quot;:&quot;...&quot;,
-        &quot;Value&quot;:&quot;...&quot;
-    }
-}
-</code></pre></div><p>POST mail-password：</p> <div class="language- extra-class"><pre class="language-text"><code>发送重置密码的验证码（注册时强制要求验证码）
-
-请求体：{
-    &quot;Email&quot;:&quot;000@00.com&quot;,
-    &quot;Language&quot;:&quot;zh-Hans&quot;,
-    &quot;Captcha&quot;:{
-        &quot;HashId&quot;:&quot;...&quot;,
-        &quot;Value&quot;:&quot;...&quot;
-    }
-}
-</code></pre></div><p>GET verification-password：</p> <div class="language- extra-class"><pre class="language-text"><code>判断重置验证码是否正确
-
-请求参数：
-verification:...
-
-返回：{
-    &quot;Result&quot;:1,
-    &quot;Message&quot;:&quot;。。。&quot;
-}
-</code></pre></div><p>POST password-new:</p> <div class="language- extra-class"><pre class="language-text"><code>修改密码
-
-请求体：{
-    &quot;Email&quot;:&quot;333@33.com&quot;,
-    &quot;Language&quot;:&quot;zh-Hans&quot;,
-    &quot;Password&quot;:&quot;sss&quot;,
-    &quot;Verification&quot;:&quot;...&quot;    //验证码
-}
-</code></pre></div><p>POST login:</p> <div class="language- extra-class"><pre class="language-text"><code>登录
-
-请求体：{
-    &quot;Account&quot;:&quot;111@11.com&quot;,    //此处可以是邮箱，也可以是用户的hashid
-    &quot;Language&quot;:&quot;zh-Hans&quot;,    //用于决定登录错误时返回message的语言
-    &quot;Password&quot;:&quot;ppp&quot;,
-    &quot;Expiry&quot;:9000,    //过期时间，单位：秒，最短不低于5秒，最大不超过30天
-    &quot;Captcha&quot;:{
-        &quot;HashId&quot;:&quot;...&quot;,
-        &quot;Value&quot;:&quot;...&quot;
-    }
-}
-
-成功返回：{
-    &quot;Result&quot;:1,
-    &quot;Message&quot;:&quot;登录成功&quot;,    //不同的language会返回不同的message
-    &quot;Jwt&quot;:&quot;....&quot;
-}
-</code></pre></div><p>POST register:</p> <div class="language- extra-class"><pre class="language-text"><code>注册
-
-请求体：{
-    &quot;Email&quot;:&quot;222@22.com&quot;,
-    &quot;Password&quot;:&quot;aaa&quot;,
-    &quot;Verification&quot;:&quot;vvv&quot;,    //邮箱验证码
-    &quot;Invite&quot;:&quot;aaa&quot;,    //邀请码
-    &quot;Language&quot;:&quot;zh-Hans&quot;    //根据当前页面的语言
-}
-</code></pre></div><p>GET login:</p> <div class="language- extra-class"><pre class="language-text"><code>用于客户端的登录
-
-请求参数：
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/SkimBook/" class="sidebar-link">首页</a></li><li><a href="/SkimBook/design.html" class="sidebar-link">设计</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/SkimBook/userend/" class="sidebar-heading clickable router-link-active open"><span>用户端（前端/客户端）</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/SkimBook/userend/init.html" class="sidebar-link">config</a></li><li><a href="/SkimBook/userend/public.html" class="sidebar-link">public</a></li><li><a href="/SkimBook/userend/account.html" class="active sidebar-link">account</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#post-mail-register" class="sidebar-link">POST mail-register</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#post-mail-password" class="sidebar-link">POST mail-password</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#get-verification-password" class="sidebar-link">GET verification-password</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#post-password-new" class="sidebar-link">POST password-new</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#post-login" class="sidebar-link">POST login</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#post-register" class="sidebar-link">POST register</a></li><li class="sidebar-sub-header"><a href="/SkimBook/userend/account.html#get-login" class="sidebar-link">GET login</a></li></ul></li><li><a href="/SkimBook/userend/user.html" class="sidebar-link">user</a></li><li><a href="/SkimBook/userend/admin.html" class="sidebar-link">admin</a></li><li><a href="/SkimBook/userend/connection.html" class="sidebar-link">connection</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/SkimBook/nodeend/" class="sidebar-heading clickable"><span>节点端</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/SkimBook/deploy.html" class="sidebar-link">部署</a></li><li><a href="/SkimBook/reference.html" class="sidebar-link">开源引用（后端）</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="account"><a href="#account" class="header-anchor">#</a> account</h1> <h2 id="post-mail-register"><a href="#post-mail-register" class="header-anchor">#</a> POST mail-register</h2> <blockquote><p>发送注册验证码（注册时强制要求验证码）</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>参数示例：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Email&quot;</span><span class="token operator">:</span><span class="token string">&quot;000@00.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Language&quot;</span><span class="token operator">:</span><span class="token string">&quot;en&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Captcha&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;HashId&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Value&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">Email</td> <td style="text-align:left;">邮箱</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr> <tr><td style="text-align:left;">Captcha</td> <td style="text-align:left;">验证码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:HashId</td> <td style="text-align:left;">验证码id</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:Value</td> <td style="text-align:left;">用户输入的验证码值</td> <td style="text-align:left;">是</td></tr></tbody></table> <h2 id="post-mail-password"><a href="#post-mail-password" class="header-anchor">#</a> POST mail-password</h2> <blockquote><p>发送重置密码的验证码（注册时强制要求验证码）</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>参数示例：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Email&quot;</span><span class="token operator">:</span><span class="token string">&quot;000@00.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Language&quot;</span><span class="token operator">:</span><span class="token string">&quot;zh-Hans&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Captcha&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;HashId&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Value&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">Email</td> <td style="text-align:left;">邮箱</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr> <tr><td style="text-align:left;">Captcha</td> <td style="text-align:left;">验证码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:HashId</td> <td style="text-align:left;">验证码id</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:Value</td> <td style="text-align:left;">用户输入的验证码值</td> <td style="text-align:left;">是</td></tr></tbody></table> <h2 id="get-verification-password"><a href="#get-verification-password" class="header-anchor">#</a> GET verification-password</h2> <blockquote><p>判断重置验证码是否正确</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>参数示例：verification=23d32a
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">verification</td> <td style="text-align:left;">验证码</td> <td style="text-align:left;">是</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code>成功返回：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Result&quot;</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Message&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="post-password-new"><a href="#post-password-new" class="header-anchor">#</a> POST password-new</h2> <blockquote><p>修改密码</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>参数示例：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Email&quot;</span><span class="token operator">:</span><span class="token string">&quot;000@00.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Language&quot;</span><span class="token operator">:</span><span class="token string">&quot;zh-Hans&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Captcha&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;HashId&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Value&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">Account</td> <td style="text-align:left;">账户</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr> <tr><td style="text-align:left;">Password</td> <td style="text-align:left;">新密码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Verification</td> <td style="text-align:left;">邮箱验证码</td> <td style="text-align:left;">是</td></tr></tbody></table> <h2 id="post-login"><a href="#post-login" class="header-anchor">#</a> POST login</h2> <blockquote><p>登录</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>请求示例：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Account&quot;</span><span class="token operator">:</span><span class="token string">&quot;111@11.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Language&quot;</span><span class="token operator">:</span><span class="token string">&quot;zh-Hans&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Password&quot;</span><span class="token operator">:</span><span class="token string">&quot;ppp&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Expiry&quot;</span><span class="token operator">:</span><span class="token number">9000</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Captcha&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;HashId&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;Value&quot;</span><span class="token operator">:</span><span class="token string">&quot;...&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">Account</td> <td style="text-align:left;">账户</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">否，默认en</td></tr> <tr><td style="text-align:left;">Password</td> <td style="text-align:left;">密码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Expiry</td> <td style="text-align:left;">JWT过期时间，5秒~30天，单位秒</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha</td> <td style="text-align:left;">验证码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:HashId</td> <td style="text-align:left;">验证码id</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Captcha:Value</td> <td style="text-align:left;">用户输入的验证码值</td> <td style="text-align:left;">是</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code>成功返回：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Result&quot;</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Jwt&quot;</span><span class="token operator">:</span><span class="token string">&quot;....&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="post-register"><a href="#post-register" class="header-anchor">#</a> POST register</h2> <blockquote><p>注册</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code>请求示例：<span class="token punctuation">{</span>
+    <span class="token property">&quot;Email&quot;</span><span class="token operator">:</span><span class="token string">&quot;222@22.com&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Password&quot;</span><span class="token operator">:</span><span class="token string">&quot;aaa&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Verification&quot;</span><span class="token operator">:</span><span class="token string">&quot;vvv&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Invite&quot;</span><span class="token operator">:</span><span class="token string">&quot;aaa&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Language&quot;</span><span class="token operator">:</span><span class="token string">&quot;zh-Hans&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">Email</td> <td style="text-align:left;">邮箱</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Password</td> <td style="text-align:left;">密码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Verification</td> <td style="text-align:left;">邮箱验证码</td> <td style="text-align:left;">是</td></tr> <tr><td style="text-align:left;">Invite</td> <td style="text-align:left;">邀请码</td> <td style="text-align:left;">否</td></tr> <tr><td style="text-align:left;">Language</td> <td style="text-align:left;">语言</td> <td style="text-align:left;">是</td></tr></tbody></table> <h2 id="get-login"><a href="#get-login" class="header-anchor">#</a> GET login</h2> <blockquote><p>用于客户端的一链登录，首先在web中获取一次性登录链接，再导入客户端，省去输入网站网址、账户、密码</p></blockquote> <table><thead><tr><th style="text-align:left;">请求参数</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">是否必须</th></tr></thead> <tbody><tr><td style="text-align:left;">authorization</td> <td style="text-align:left;">一次性授权链接</td> <td style="text-align:left;">是</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code>请求参数：
 authorization:...///一次性授权
 
 使用方式：
@@ -99,6 +83,6 @@ https://www.xxx.com/login?authorization=1234qwer
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/SkimBook/assets/js/app.39a981f5.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/15.510924d0.js" defer></script>
+    <script src="/SkimBook/assets/js/app.5be23228.js" defer></script><script src="/SkimBook/assets/js/2.67bc7483.js" defer></script><script src="/SkimBook/assets/js/15.5a3889ed.js" defer></script>
   </body>
 </html>
