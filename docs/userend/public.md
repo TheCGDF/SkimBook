@@ -29,8 +29,8 @@ GET notice-pick
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
 | language | 语言 | 否，默认en |
-| width | 图片宽度 | 是 |
-| height | 图片高度 | 是 |
+| width | 图片宽度，单位pixel，上限280 | 是 |
+| height | 图片高度，单位pixel，上限280 | 是 |
 ```
 成功返回：{
     "Result":1,
