@@ -24,11 +24,13 @@ GET notice-pick
 ### GET captcha
 >获取一个验证码显示到前端
 ```
-请求示例：language=en
+请求示例：language=en&width=220&height=120
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
 | language | 语言 | 否，默认en |
+| width | 图片宽度 | 是 |
+| height | 图片高度 | 是 |
 ```
 成功返回：{
     "Result":1,
