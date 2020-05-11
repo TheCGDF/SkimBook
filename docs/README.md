@@ -27,7 +27,13 @@ _**（有没有flutter开发来整个客户端（小声**_
 后端demo地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-column)
 
 测试示例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-column)
-| 前端demo | 作者 |
-| :--- | :--- |
-| [nsmash](https://nsmashtest.kokoharu.club/#/) | [laurieryayoi](https://github.com/laurieryayoi) |
+
+测试账户：admin@skimproj.com
+
+测试密码：123456
+
+| 前端demo | 作者 | 备注 |
+| :- | :- | :-
+| [nsmash](https://nsmashtest.kokoharu.club/#/) | [laurieryayoi](https://github.com/laurieryayoi) | 闭源发售
+| [skive](https://github.com/TheCGDF/skive) | [TheCGDF](https://github.com/TheCGDF/skive) | WTFPL协议开源
 
