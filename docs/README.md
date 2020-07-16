@@ -26,7 +26,7 @@ _**（有没有flutter开发来整个客户端（小声**_
 ### demo
 后端demo地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-columns)
 
-测试示例：[https://backend.skimproj.com/public/notice-column](https://backend.skimproj.com/public/notice-columns)
+测试示例：[https://backend.skimproj.com/public/notice-columns](https://backend.skimproj.com/public/notice-columns)
 
 测试账户：admin@skimproj.com
 
