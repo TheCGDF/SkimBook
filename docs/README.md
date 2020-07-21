@@ -22,7 +22,7 @@ _**（有没有flutter开发来整个客户端（小声**_
 ### 链接
 [详细设计及开发文挡](https://book.skimproj.com/)
 
-[Telegram群组](https://t.me/joinchat/GvbhTwuCJpv4OGHGlPCHnQ)
+[Telegram群组](https://t.me/skimproj)
 ### demo
 后端demo地址：[https://backend.skimproj.com](https://backend.skimproj.com/public/notice-columns)
 
