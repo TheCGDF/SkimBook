@@ -27,7 +27,7 @@ GET notice-pick
 参数示例：{
     "Menus":[
         {
-            "HashId":"d134",
+            "Id":"d134",
             "Operation":1,
         }
     ]
@@ -36,7 +36,7 @@ GET notice-pick
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
 | Menus | 菜单数组 | 是 |
-| Menus:HashId | 菜单hash id | 是 |
+| Menus:Id | 菜单id | 是 |
 | Menus:Operation | 操作，1：立即激活，2：次周期激活,3：立即停用，4：次周期停用 | 是 |
 ### GET my
 >返回用户信息

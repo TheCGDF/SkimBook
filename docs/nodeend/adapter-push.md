@@ -73,11 +73,11 @@ v2ray用户变更：{
 规则变更：{
     "Element":"censorship",
     "Removes":[
-        {"HashId":"..."}    //id不是数字，而是字符串（hash id）
+        {"Id":"..."}
     ],
     "Update":[
         {
-            "HashId":"...",
+            "Id":"...",
             "Rule":".*"
         }
     ]

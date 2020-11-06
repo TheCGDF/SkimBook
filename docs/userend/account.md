@@ -9,7 +9,7 @@ description: 账户类API
     "Email":"000@00.com",
     "Language":"en",
     "Captcha":{
-        "HashId":"...",
+        "Id":"...",
         "Value":"..."
     }
 }
@@ -19,7 +19,7 @@ description: 账户类API
 | Email | 邮箱 | 是 |
 | Language | 语言 | 否，默认en |
 | Captcha | 验证码 | 是 |
-| Captcha:HashId | 验证码id | 是 |
+| Captcha:Id | 验证码id | 是 |
 | Captcha:Value | 用户输入的验证码值 | 是 |
 ## POST mail-password
 >发送重置密码的验证码（注册时强制要求验证码）
@@ -28,7 +28,7 @@ description: 账户类API
     "Email":"000@00.com",
     "Language":"zh-Hans",
     "Captcha":{
-        "HashId":"...",
+        "Id":"...",
         "Value":"..."
     }
 }
@@ -38,7 +38,7 @@ description: 账户类API
 | Email | 邮箱 |是 |
 | Language | 语言 | 否，默认en |
 | Captcha | 验证码 | 是 |
-| Captcha:HashId | 验证码id | 是 |
+| Captcha:Id | 验证码id | 是 |
 | Captcha:Value | 用户输入的验证码值 | 是 |
 ## GET verification-password
 >判断重置验证码是否正确
@@ -61,14 +61,14 @@ description: 账户类API
     "Email":"000@00.com",
     "Language":"zh-Hans",
     "Captcha":{
-        "HashId":"...",
+        "Id":"...",
         "Value":"..."
     }
 }
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
-| Account | 账户 | 是 |
+| Email | 邮箱 | 是 |
 | Language | 语言 | 否，默认en |
 | Password | 新密码 | 是 |
 | Verification | 邮箱验证码 | 是 |
@@ -76,24 +76,24 @@ description: 账户类API
 >登录
 ```json
 请求示例：{
-    "Account":"111@11.com",
+    "Email":"111@11.com",
     "Language":"zh-Hans",
     "Password":"ppp",
     "Expiry":9000,
     "Captcha":{
-        "HashId":"...",
+        "Id":"...",
         "Value":"..."
     }
 }
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
-| Account | 账户 | 是 |
+| Email | 邮箱 | 是 |
 | Language | 语言 | 否，默认en |
 | Password | 密码 | 是 |
 | Expiry | JWT过期时间，5秒~30天，单位秒 | 是 |
 | Captcha | 验证码 | 是 |
-| Captcha:HashId | 验证码id | 是 |
+| Captcha:Id | 验证码id | 是 |
 | Captcha:Value | 用户输入的验证码值 | 是 |
 ```json
 成功返回：{

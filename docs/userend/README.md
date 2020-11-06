@@ -61,12 +61,12 @@
 | number | 页容量 | 是 |
 | page | 页码 | 是 |
 | search | 关键字查询 | 否 |
-| full | 完整行，false时仅返回hash id | 是 |
+| full | 完整行，false时仅返回id | 是 |
 ```json
 full=false时成功返回：{
     "Result":1,
     "Total":122,    //数据总数
-    "Items":["3a28ja","sadr22","3af34,4r33"]    //hash id数组
+    "Items":["1","122","122A","133b7"]    //id数组
 }
 
 full=true时成功返回：{
@@ -80,15 +80,15 @@ full=true时成功返回：{
 }
 ```
 ### GET /xxx-pick
->查询指定hash id
+>查询指定id
 ```
-参数示例：language=en&timezone=480&hash-ids[]=as3sa&hash-ids[]=4zf23
+参数示例：language=en&timezone=480&ids[]=as3sa&ids[]=4zf23
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
 | language | 语言，仅/public下需要此参数 | 否，默认en |
 | timezone | 时区，单位分钟，仅/public下需要此参数 | 否，默认+0 |
-| hash-ids\[\] | 想要查询的hash id数组 | 是 |
+| ids\[\] | 想要查询的id数组 | 是 |
 返回结构与分页查询/xxx-list的full=true返回结构相同
 ### reference用法
 /xxx-columns中提及到，column有一个reference属性，值为false/true
@@ -115,18 +115,18 @@ full=true时成功返回：{
 "Total":123,    //数据总数
 "Columns":[
     {
-        "Name":"time"
+        "Name":"time",
         "Text":"订单时间",
         "Reference":"false"    //这里为false，则什么都不用管
     },
     {
-        "Name":"menu"
+        "Name":"menu",
         "Text":"菜单",
         "Reference":"true"    //这里为true，说明一定存在/menu列表查询和精确查询
     }    
 ]
 ```
-reference为true的column，返回的内容是一个hash id
+reference为true的column，返回的内容是一个id
 
 接上例，/order-list返回以下数据：
 ```json
@@ -134,7 +134,6 @@ reference为true的column，返回的内容是一个hash id
     [
         "2019-01-01 01:00:00",    //name，reference:false
         "54f7gh",    //menu，reference:true，这里返回的是一个menu的id
-                     //id不是数字，而是字符串（hash id）
     ],
     [
         "2019-01-02 02:00:00",
@@ -154,7 +153,7 @@ reference的显示方法相当自由，可以显示一串字符串：
 | :--- | :--- |
 | 2019-01-01 01:00:00 | [菜单1](http://aaa.com/user/menu/1) |
 | 2019-01-02 02:00:00 | [菜单2](http://aaa.com/user/menu/2) |
-或者直接什么都不做，直接把hash id放上去：
+或者直接什么都不做，直接把id放上去：
 | 订单时间 | 菜单 |
 | :--- | :--- |
 | 2019-01-01 01:00:00 | 54f7gh |
@@ -162,11 +161,11 @@ reference的显示方法相当自由，可以显示一串字符串：
 ### GET /xxx-edit
 >获取xxx的\[编辑/新建\]页面
 ```
-参数示例：hash-id=6hf76tgk
+参数示例：id=6hf76tgk
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
-| hash-id | hash id | 否，如果不存在，则为新建 |
+| id | id | 否，如果不存在，则为新建 |
 ### POST /xxx-remove
 >删除列表中的一项或多项
 ```
@@ -176,12 +175,12 @@ reference的显示方法相当自由，可以显示一串字符串：
 ```
 | 请求参数 | 说明 | 是否必须 |
 | :- | :- | :- |
-| Items | hash id数组 | 是 |
+| items | id数组 | 是 |
 ## JWT内容
 ```json
 Claims:{
     "Expiry":"2019-07-15T03:59:30Z",    //遵循RFC3339且总是UTC时区
-    "HashId":"a382jw",    //用户的hash id
+    "Id":"a382jw",    //用户的id
     "Language":2,    //用户的语言
     "Timezone":3600    //用户的时区
 }
@@ -211,7 +210,7 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 
 使用场景：
 ```json
-通过GET /user/admin/user-edit?hashId=23y66b
+通过GET /user/admin/user-edit?id=23y66b
 可能收到返回：{
     "Edits":[
         {
@@ -235,7 +234,7 @@ date既可以使用普通文字编辑控件，也可以使用日历控件
 
 通过POST /user/admin/user-update
 对值进行更新：{
-    "HashId":"23y66b",
+    "Id":"23y66b",
     "Updates":[
         {
             "Name":"role",

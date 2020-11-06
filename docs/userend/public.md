@@ -34,7 +34,7 @@ GET notice-pick
 ```
 成功返回：{
     "Result":1,
-    "HashId":"...",    //验证码的id
+    "Id":"...",    //验证码的id
     "Picture":"..."    //一串base64，解码后是一张PNG
 }
 //后面也可能会有audio什么的。。。
