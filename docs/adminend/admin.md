@@ -6,9 +6,9 @@ description: 管理员在/admin下的操作会被记录到数据库中
 
 ## 访问方式
 
-和/user一样，/admin也使用JWT授权访问。不同的是，/admin还可以使用token访问
+和用户端/user一样，管理端/admin也使用JWT授权访问。但/admin还可以使用token访问
 
-例如：
+例：
 
 现有一个`POST /admin/balanceAdd`API，可以对指定用户的余额进行改变
 

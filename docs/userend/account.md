@@ -92,13 +92,18 @@ description: 账户类API
 | Language | 语言 | 否，默认en |
 | Password | 密码 | 是 |
 | Expiry | JWT过期时间，5秒~30天，单位秒 | 是 |
-| Captcha | 验证码 | 是 |
+| Captcha | 验证码 | 否，默认无需验证码，登录失败多次后强制 |
 | Captcha:Id | 验证码id | 是 |
 | Captcha:Value | 用户输入的验证码值 | 是 |
 ```json
 成功返回：{
     "Result":1,
     "Jwt":"...."
+}
+失败返回：{
+    "Result":2,
+    "Message":"...",    //失败原因
+    "Captcha":true/false    //true表示下次强制需要验证码
 }
 ```
 ## POST register

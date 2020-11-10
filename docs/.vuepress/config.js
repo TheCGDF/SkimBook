@@ -23,8 +23,14 @@ module.exports = {
                     '/userend/public',
                     '/userend/account',
                     '/userend/user',
-                    '/userend/admin',
                     '/userend/connection',
+                ]
+            },
+            {
+                title: '管理端（前端/客户端）',
+                path: '/adminend/',
+                children: [
+                    '/adminend/admin',
                 ]
             },
             {
